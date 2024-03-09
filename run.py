@@ -72,8 +72,12 @@ def get_water_and_temperature_tolerance():
         if preference in ("warm", "cool"):
             water_preference = preference
             break
-            print(f"Alright, {water_preference} water it is. Now, how do you handle air temperature?")
-
+    print(f"\n Alright, {water_preference} water it is. Now, how do you handle air temperature?")
+    tolerance = input("Are you a 'tropical lizard' or a 'polar bear'?\n").lower()
+    if tolerance not in ("tropical lizard", "polar bear"):
+        print(f"Those aren't the only options {name}, but interesting choices! We'll assume you're adaptable.")
+        tolerance = "adaptable"
+    return water_preference, tolerance
 
 
 def get_weather_data(api_key, location):
@@ -104,7 +108,7 @@ def main():
     wind_sports = [] # Create an empty list to store windsports as examples of windsurfing activities for the chosen skill level
     windsurfing_skill(name, wind_sports)  # Pass the empty list
     # Get water tolerance after getting windsurfing skill
-    water_preference = get_water_and_temperature_tolerance()
+    water_preference, tolerance = get_water_and_temperature_tolerance()
     
 
 main()
