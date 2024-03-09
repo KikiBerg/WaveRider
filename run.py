@@ -17,17 +17,17 @@ def welcome_user():
 
         try:
             if name.isalpha():                
-                print(f"Welcome to WaveRider, {name}!\n")                
+                print(f"Welcome to WaveRider, {name}!\n")
+                location = input(f"{name}, where are you located? (e.g., City, Country)\n")
+                print(f"Wow, {location} is such a nice place!\n")                
+                get_weather_data(api_key, location)  # Call get_weather_data function with user-provided location
+                break                                   
             elif len(name) == 0:
                 print("Why not provide a name?")
             else:
                 print(f"{name} is invalid. You can only enter letters a-z\n")
         except ValueError as err:
-            print(f'{err}. Please try again.')   
-        
-        location = input(f"Where are you located {name}? \n")
-        print(f"Wow, {location} is such a nice place!\n")
-        break
+            print(f'{err}. Please try again.')                 
 
 
 def get_weather_data(api_key, location):
@@ -35,12 +35,17 @@ def get_weather_data(api_key, location):
     
     url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric"
     response = requests.get(url).json() # convert it to a json in order to be able to access individual attributes
-    print(response)
+    
+    if response['cod'] == 200: # Check if the request was successful (response code 200)
+        # Extract and display relevant weather information here, e.g:
 
-get_weather_data(api_key, location)
-
-
-
+        weather = response['weather'][0]['main']
+        temperature = response['main']['temp']
+        print(f"The weather in {location} is currently {weather}. The temperature is {temperature}°C.")
+    else:
+        # Handle error: location not found, etc.
+        print(f"An error occurred while fetching weather data for {location}.")
+    
 
 
 welcome_user()
