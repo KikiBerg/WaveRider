@@ -7,7 +7,6 @@ import math
 import random
 
 api_key = "e33690fb74cac3d02cc1384e38f73c7d"
-#location = "Stockholm, SE"
 
 def welcome_user():
     """Greets the user welcome, asks for their name and location and validates input."""
@@ -38,7 +37,27 @@ def welcome_user():
             break            
 
         except ValueError as err:
-            print(f'{err}. Please try again.') 
+            print(f'{err}. Please try again.')
+    return name
+
+
+def windsurfing_skill(name):
+    """Asks the user for their windsurfing skill level."""
+    print(f"\n {name}, on a scale of 1 (chill surfer) to 10 (gnarly surfer), how would you rate your windsurfing skills?")
+    skill_level = int(input("Choose your windsurfing spirit! (Enter a number 1-10): \n"))
+
+    if skill_level <= 3:
+        skill_level = "Chill Surfer"
+    elif skill_level <= 6:
+        skill_level = "Freestyle Flyer"
+    elif skill_level <= 10:
+        skill_level = "Wave Warrior"
+    else:
+        print(f"Woah there, {name}, that's beyond the scale! Maybe you're a windsurfing legend? \n")
+        skill_level = "Legendary Windsurfer"
+    
+    print(f"Sounds like you're a {skill_level}!")
+    return skill_level
 
 
 def get_weather_data(api_key, location):
@@ -53,7 +72,8 @@ def get_weather_data(api_key, location):
         weather = response['weather'][0]['main']
         temperature = response['main']['temp']        
         feels_like = math.floor(response['main']['temp'])
-        print(f"The weather in {location.split(',')[0].strip()} is currently: {weather}. The temperature is {temperature}°C and it feels like {feels_like}°C")
+        wind_speed = response['wind']['speed']
+        print(f"The weather in {location.split(',')[0].strip()} is currently: {weather}. The temperature is {temperature}°C and it feels like {feels_like}°C. The wind speed is {wind_speed} m/s \n")
     else:
         # Handle error: location not found, etc.
         print(f"An error occurred while fetching weather data for {location}.")
@@ -64,7 +84,8 @@ def get_weather_data(api_key, location):
 
 def main():
     """ Run all program functions """
-    welcome_user()
+    name = welcome_user() # Call welcome_user and store the returned name
+    windsurfing_skill(name)  # Pass the retrieved name to windsurfing_skill
     
-print("")
+
 main()
