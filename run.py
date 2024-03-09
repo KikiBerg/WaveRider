@@ -41,23 +41,27 @@ def welcome_user():
     return name
 
 
-def windsurfing_skill(name):
+def windsurfing_skill(name, wind_sports):
     """Asks the user for their windsurfing skill level."""
     print(f"\n {name}, on a scale of 1 (chill surfer) to 10 (gnarly surfer), how would you rate your windsurfing skills?")
-    skill_level = int(input("Choose your windsurfing spirit! (Enter a number 1-10): \n"))
+    skill_level = int(input("Choose your windsurfing spirit! (Enter a number 1-10): \n"))    
 
-    if skill_level <= 3:
+    if skill_level <= 3: # Convert numerical skill level to categories
         skill_level = "Chill Surfer"
+        wind_sports.append("cruising")
     elif skill_level <= 6:
         skill_level = "Freestyle Flyer"
+        wind_sports.append("freestyle maneuvers")
     elif skill_level <= 10:
         skill_level = "Wave Warrior"
+        wind_sports.append("catching waves")
     else:
         print(f"Woah there, {name}, that's beyond the scale! Maybe you're a windsurfing legend? \n")
         skill_level = "Legendary Windsurfer"
+        wind_sports.append("anything you set your mind to")
     
-    print(f"Sounds like you're a {skill_level}!")
-    return skill_level
+    print(f"Sounds like you're a {skill_level}! We'll check the conditions for {wind_sports[0]} today.")
+    return skill_level, wind_sports # Return both skill level and wind_sports list
 
 
 def get_weather_data(api_key, location):
@@ -66,7 +70,7 @@ def get_weather_data(api_key, location):
     url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric"
     response = requests.get(url).json() # convert it to a json in order to be able to access individual attributes
     
-    if response['cod'] == 200: # Check if the request was successful (response code 200)
+    if response['cod'] == 200: # Check if the request was successful
         # Extract and display relevant weather information here:
 
         weather = response['weather'][0]['main']
@@ -77,7 +81,7 @@ def get_weather_data(api_key, location):
     else:
         # Handle error: location not found, etc.
         print(f"An error occurred while fetching weather data for {location}.")
-    
+        return None    
 
 
 
@@ -85,7 +89,8 @@ def get_weather_data(api_key, location):
 def main():
     """ Run all program functions """
     name = welcome_user() # Call welcome_user and store the returned name
-    windsurfing_skill(name)  # Pass the retrieved name to windsurfing_skill
+    wind_sports = [] # Create an empty list to store windsports as examples of windsurfing activities for the chosen skill level
+    windsurfing_skill(name, wind_sports)  # Pass the empty list
     
 
 main()
