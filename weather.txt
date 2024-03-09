@@ -14,3 +14,28 @@
 
 
 
+def welcome_user():
+    """Greets the user, asks for their name, and validates location input."""
+    print("Welcome to WaveRider, your ultimate windsurfing companion!\n")
+    print("Are you ready to conquer the waves today?\n")
+
+    while True:
+        name = input("Hey there, windsurfer! What's your name? ")
+
+        try:
+            if name.isalpha():
+                print(f"Welcome aboard, {name}! Let's get you ready to ride!\n")
+
+                while True:
+                    location = input(f"{name}, where are you located? (e.g., City, Country)\n")
+
+                    # Validate location format (comma separated)
+                    if "," in location and len(location.split(",")) == 2:
+                        print(f"Splendid, {location} is such a beautiful place!\n")
+                        get_weather_data(api_key, location)  # Call with validated location
+                        break
+                    else:
+                        print(f"Invalid location format. Please enter 'City, Country'.")
+
+        except ValueError as err:
+            print(f'{err}. Please try again.')
