@@ -15,12 +15,12 @@ def welcome_user():
     
     while True:  
         try:
-            name = input("What's your name? ").upper()
+            name = input("\n What's your name? ").upper()
             if not name.isalpha():
                 raise ValueError("Name can only contain letters a-z.")
             
             while True:
-                location = input(f"{name}, where are you located? (e.g., City, Country)\n").upper()
+                location = input(f"\n{name}, where are you located? (e.g., City, Country)\n").upper()
                 try:
                     city, country = location.strip().split(",")
                     city = city.strip()
@@ -34,6 +34,7 @@ def welcome_user():
             city_name = city # Extract city name into a variable           
             print(f"Splendid! {city_name} is such a beautiful place!\n") # Modify the code to only show the city in the welcome message
             get_weather_data(api_key, location)
+            print(f"Now, let's get to know you better {name}")
             break            
 
         except ValueError as err:
@@ -44,7 +45,7 @@ def welcome_user():
 def windsurfing_skill(name, wind_sports):
     """Asks the user for their windsurfing skill level."""
     print(f"\n {name}, on a scale of 1 (chill surfer) to 10 (gnarly surfer), how would you rate your windsurfing skills?")
-    skill_level = int(input("Choose your windsurfing spirit! (Enter a number 1-10): \n"))    
+    skill_level = int(input("Choose your windsurfing spirit! Enter a number 1-10: \n"))    
 
     if skill_level <= 3: # Convert numerical skill level to categories
         skill_level = "Chill Surfer"
@@ -64,6 +65,17 @@ def windsurfing_skill(name, wind_sports):
     return skill_level, wind_sports # Return both skill level and wind_sports list
 
 
+def get_water_and_temperature_tolerance():
+    """Asks the user for water temperature preference and tolerance for air temperature."""
+    while True:
+        preference = input("Do you prefer the water warm (like a bathtub) or cool (like a refreshing pool) for windsurfing? ").lower()
+        if preference in ("warm", "cool"):
+            water_preference = preference
+            break
+            print(f"Alright, {water_preference} water it is. Now, how do you handle air temperature?")
+
+
+
 def get_weather_data(api_key, location):
     """Fetches weather data from Open Weather Map for the given location."""
     
@@ -77,7 +89,7 @@ def get_weather_data(api_key, location):
         temperature = response['main']['temp']        
         feels_like = math.floor(response['main']['temp'])
         wind_speed = response['wind']['speed']
-        print(f"The weather in {location.split(',')[0].strip()} is currently: {weather}. The temperature is {temperature}°C and it feels like {feels_like}°C. The wind speed is {wind_speed} m/s \n")
+        print(f"Some quick current weather facts for {location.split(',')[0].strip()}: The weather is {weather}. The temperature is {temperature}°C and it feels like {feels_like}°C. The wind speed is {wind_speed} m/s \n")
     else:
         # Handle error: location not found, etc.
         print(f"An error occurred while fetching weather data for {location}.")
@@ -91,6 +103,8 @@ def main():
     name = welcome_user() # Call welcome_user and store the returned name
     wind_sports = [] # Create an empty list to store windsports as examples of windsurfing activities for the chosen skill level
     windsurfing_skill(name, wind_sports)  # Pass the empty list
+    # Get water tolerance after getting windsurfing skill
+    water_preference = get_water_and_temperature_tolerance()
     
 
 main()
