@@ -1,168 +1,159 @@
-def get_windsurfing_suitability():
-  """Asks the user for water and air temperature preferences,
-  offering guidance on windsurfing suitability based on their input.
+# Your code goes here.
+# You can delete these comments, but do not change the name of this file
+# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import requests
+from tkinter import *
+import math
+import random
 
-  Returns:
+api_key = "e33690fb74cac3d02cc1384e38f73c7d"
+
+def welcome_user():
+    """Greets the user welcome, asks for their name and location and validates input."""
+    print("\nWelcome to WaveRider, your ultimate windsurfing companion!\n")
+    print("Hey there, windsurfer! Hope you are you ready to conquer the waves today!\n")
+    
+    while True:  
+        try:
+            name = input("\n What's your name, Captain? ").upper()
+            if not name.isalpha():
+                raise ValueError("Whoa there, sailor! Names can only have letters (a-z).")
+            
+            while True:
+                location = input(f"\nAhoy,{name}! Where are you anchored today? (e.g., City, Country)\n").upper()
+                try:
+                    city, country = location.strip().split(",")
+                    city = city.strip()
+                    country = country.strip()
+                    if not city or not country:
+                        raise ValueError("Looks like you forgot something, matey! Enter both city and country separated by a comma.\n")
+                    break
+                except ValueError:
+                    print("Invalid location format. Did you mean something like 'Los Angeles, USA'? (enter city, country)\n")
+
+            city_name = city # Extract city name into a variable           
+            print(f"Splendid! {city_name} is such a beautiful place!\n") # Modify the code to only show the city in the welcome message
+                                  
+            break            
+
+        except ValueError as err:
+            print(f'{err}. Maybe the rum got the better of you? Try again.')
+    return name, location # Return the location variable along with name
+
+
+def windsurfing_skill(name, wind_sports):
+    """Asks the user for their windsurfing skill level."""
+    print(f"\nNow, let's get to know you better {name}")
+    print(f"\n {name}, on a scale of 1 (chill surfer) to 10 (gnarly surfer), how would you rate your windsurfing skills?")
+    skill_level = int(input("Choose your windsurfing spirit! Enter a number 1-10: \n"))    
+
+    if skill_level <= 3: # Convert numerical skill level to categories
+        skill_level = "Chill Surfer"
+        wind_sports.append("cruising")
+        print("Ah, a casual sailor! Lay back, soak up the sun and maybe catch a few waves.")
+    elif skill_level <= 6:
+        skill_level = "Freestyle Flyer"
+        wind_sports.append("freestyle maneuvers")
+        print("Feeling fancy? Get ready to show off those spins and jumps like a pro!")
+    elif skill_level <= 10:
+        skill_level = "Wave Slayer"
+        wind_sports.append("catching waves")
+        print("You hear the call of the ocean, don't you? Get ready to carve up those waves!")
+    else:
+        print(f"Woah there, {name}, that's beyond the scale! Are you whispering to the wind gods?\n")
+        skill_level = "Legendary Windsurfer"
+        wind_sports.append("anything you set your mind to")
+        print("We salute you, legendary windsurfer! You can conquer any wind and wave!")
+    
+    print(f"Ok! Sounds like you're a {skill_level}! We'll check the conditions for {wind_sports[0]} today.")
+    return skill_level, wind_sports # Return both skill level and wind_sports list
+
+
+def get_windsurfing_suitability(temperature): # rename function get_water_and_temperature_tolerance
+    """Asks the user for water and air temperature preferences,
+    offering guidance on windsurfing suitability based on their input.
+    Returns: 
     tuple: A tuple containing the user's water preference (str)
-           and air temperature suitability (bool).
-  """
+    and air temperature suitability (bool)."""
+    print(f"\nNow, let's look a bit deeper at your preferences!")
+    while True: # Get water preference with feedback
+        preference = input("\nHow do you prefer the water for windsurfing? 'Warm' like a bath or 'cool' like a glacier?\n").lower()
+        if preference in ("warm", "cool"):
+            water_preference = preference
+            if preference == 'warm':
+                print(f"\nAh, a bathtub enthusiast! Perfect for practicing those mermaid impressions!")
+            elif preference == 'cool':
+                print(f"Excellent choice! Perfect for channeling your inner penguin (without the tuxedo).")                
+            else:
+                print(f"\nHold on, {preference} water? Hey there, landlubber! Those aren't water temperatures, those are shower settings. Try 'warm' or 'cool'.")
+            break
+    
+    # Get air temperature tolerance and determine suitability
+    print(f"\n Alright, {water_preference} water it is. Now, how do you handle air temperature?")
+    tolerance = input("Would you define yourself as a 'tropical lizard' or a 'polar bear'?\n").lower()
 
-  # Get water preference with feedback
-  while True:
-    preference = input("Do you prefer the water warm (like a bath) or cool (like a glacier) for windsurfing? ").lower()
-    if preference in ("warm", "cool"):
-      water_preference = preference
-      if preference == 'warm':
-        print(f"\nAh, a bathtub enthusiast! Perfect for practicing those mermaid impressions!")
-      elif preference == 'cool':
-        print(f"Excellent choice! Perfect for channeling your inner penguin (without the tuxedo).")
-      else:
-        print(f"\nHold on, {preference} water? Hey there, landlubber! Those aren't water temperatures, those are shower settings. Try 'warm' or 'cool'.")
-      break
+    ideal_min_temp = 18 # Minimum ideal air temperature (Celsius)
+    ideal_max_temp = 28 # Maximum ideal air temperature (Celsius)
 
-  # Get air temperature tolerance and determine suitability
-  print(f"\n Alright, {water_preference} water it is. Now, how do you handle air temperature?")
-  tolerance = input("Would you define yourself as a 'tropical lizard' or a 'polar bear'?\n").lower()
+    if tolerance in ("tropical lizard", "polar bear"):
+        if tolerance == 'tropical lizard':
+            ideal_min = 22
+            ideal_max = 32
+        elif tolerance == 'polar bear':
+            ideal_min = 12
+            ideal_max = 22
+    else:
+        print(f"Those aren't the only options {name}, but interesting choices! We'll assume you're adaptable.")
+    
+    if temperature  < ideal_min_temp:
+        print("The air temperature is a bit chilly for windsurfing. Consider wearing a wetsuit or layering up.")
+    elif temperature > ideal_max_temp:
+        print("The air temperature might be a bit hot. Stay hydrated and consider sun protection.")
+    else:
+        print("The air temperature looks perfect for windsurfing!")     
 
-  ideal_min = 18  # Minimum ideal air temperature (Celsius)
-  ideal_max = 28  # Maximum ideal air temperature (Celsius)
-
-  if tolerance in ("tropical lizard", "polar bear"):
-    # Adjust ideal range based on tolerance (optional)
-    if tolerance == "tropical lizard":
-      ideal_min = 22
-      ideal_max = 32
-    elif tolerance == "polar bear":
-      ideal_min = 12
-      ideal_max = 22
-  else:
-    print(f"Those aren't the only options {name}, but interesting choices! We'll assume you're adaptable.")
-
-  temperature = float(input("Enter the current air temperature (in Celsius): "))
-
-  if temperature < ideal_min:
-    print("The air temperature is a bit chilly for windsurfing. Consider wearing a wetsuit or layering up.")
-  elif temperature > ideal_max:
-    print("The air temperature might be a bit hot. Stay hydrated and consider sun protection.")
-  else:
-    print("The air temperature looks perfect for windsurfing!")
-
-  return water_preference, temperature >= ideal_min  # Suitable if minimum threshold is met
-
-# Example usage
-water_pref, is_suitable = get_windsurfing_suitability()
-print(f"\nWindsurfing suitability based on your preferences:")
-print(f"  Water preference: {water_pref}")
-print(f"  Air temperature suitable: {is_suitable}")
+    return water_preference, temperature >= ideal_min # Suitable if minimum threshold is met
 
 
+def get_weather_data(api_key, location):
+    """Fetches weather data from Open Weather Map for the given location."""
+    
+    url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={api_key}&units=metric"
+    response = requests.get(url).json() # convert it to a json in order to be able to access individual attributes
+    
+    if response['cod'] == 200: # Check if the request was successful
+        # Extract and display relevant weather information here:
+
+        weather = response['weather'][0]['main']
+        temperature = response['main']['temp']        
+        feels_like = math.floor(response['main']['temp'])
+        wind_speed = response['wind']['speed']
+        print(f"Some quick current weather facts for {location.split(',')[0].strip()}: The weather is {weather}. The temperature is {temperature}°C and it feels like {feels_like}°C. The wind speed is {wind_speed} m/s \n")
+        return weather, temperature, feels_like, wind_speed
+    else:
+        # Handle error: location not found, etc.
+        print(f"An error occurred while fetching weather data for {location}.")
+        return None, None, None, None    
 
 
-######################
 
 
 def main():
     """ Run all program functions """
-    name = welcome_user()
-    wind_sports = []
-    skill_level, wind_sports = windsurfing_skill(name, wind_sports)  # Pass the empty list
+    name, location = welcome_user() # Unpack both name and location
+    weather, temperature, feels_like, wind_speed = get_weather_data(api_key, location)  # Fetch weather data and unpack all
 
-    # Get water and temperature tolerance after getting windsurfing skill
-    water_preference, tolerance = get_water_and_temperature_tolerance()
+    if weather is None # Handle errors from get_weather_data
+        return
 
-    # Now you have all the information: name, skill level, wind sports, water preference, and temperature tolerance
-    # Use this information to provide recommendations or suggestions to the user
+    wind_sports = [] # Create an empty list to store windsports as examples of windsurfing activities for the chosen skill level    
+    windsurfing_skill(name, wind_sports)  # Pass the empty list   
+    water_pref, is_suitable = get_windsurfing_suitability(temperature) # Ask the user about water and air temp preferences and determine windsurfing suitability
 
-    print(f"\nGreat to know your preferences, {name}! As a {skill_level}, {wind_sports[0]} sounds like a fun activity.")
-
-    # Example: Conditionally suggest based on water preference and temperature tolerance
-    if water_preference == "warm" and tolerance == "tropical lizard":
-        print(f"Since you prefer warm water and enjoy the heat, you might enjoy locations with calmer waters and consistent sunshine.")
-    elif water_preference == "cool" and tolerance == "polar bear":
-        print(f"You prefer cool water and can handle cooler temperatures? Look for locations with waves and potentially windier conditions.")
-    else:
-        print(f"With your adaptability to water temperature and air temperature, you have a wider range of options to explore!")
-
-    # You can further enhance this section with logic based on weather data or external resources
-
-    print("\nWe hope WaveRider helped you plan your windsurfing adventure! Stay safe and have fun out there!")
+    print(f"\nWindsurfing suitability based on your preferences:\n")
+    print(f"  Water preference: {water_pref}\n")
+    print(f"  Air temperature suitable: {is_suitable}\n")
+    print(f"Some quick current weather facts for {location.split(',')[0].strip()}: The weather is {weather}. The temperature is {temperature}°C and it feels like {feels_like}°C. The wind speed is {wind_speed} m/s \n")
+    
 
 main()
-
-
-
-def is_suitable_air_temperature(temperature):
-    """Determines if the air temperature is suitable for windsurfing.
-
-    Args:
-        temperature (float): The air temperature in degrees Celsius.
-
-    Returns:
-        bool: True if the temperature is suitable, False otherwise.
-    """
-
-    ideal_min = 18  # Minimum ideal air temperature (Celsius)
-    ideal_max = 28  # Maximum ideal air temperature (Celsius)
-
-    if temperature < ideal_min:
-        print("The air temperature is a bit chilly for windsurfing. Consider wearing a wetsuit or layering up.")
-    elif temperature > ideal_max:
-        print("The air temperature might be a bit hot. Stay hydrated and consider sun protection.")
-    else:
-        print("The air temperature looks perfect for windsurfing!")
-
-    return temperature >= ideal_min  # Suitable if minimum threshold is met
-
-def is_suitable_wind_speed(wind_speed, wind_gust):
-    """Determines if the wind speed and gusts are suitable for windsurfing skill level.
-
-    Args:
-        wind_speed (float): The average wind speed in meters per second.
-        wind_gust (float): The maximum wind gust speed in meters per second.
-
-    Returns:
-        bool: True if the wind conditions are suitable, False otherwise.
-    """
-
-    beginner_max = 7  # Maximum wind speed for beginners (m/s)
-    intermediate_max = 10  # Maximum wind speed for intermediate windsurfers (m/s)
-    advanced_min = 12  # Minimum wind speed for advanced windsurfers (m/s)
-
-    print("What is your windsurfing skill level?")
-    skill_level = input("(Enter 'beginner', 'intermediate', or 'advanced'): ").lower()
-
-    if skill_level == "beginner":
-        if wind_speed > beginner_max:
-            print(f"Wind speeds are a bit strong at {wind_speed:.1f} m/s for beginners. Consider waiting for calmer conditions.")
-            return False
-    elif skill_level == "intermediate":
-        if wind_speed > intermediate_max:
-            print(f"Wind speeds might be challenging at {wind_speed:.1f} m/s for intermediate windsurfers. Use caution or consider waiting.")
-            return False
-    elif skill_level == "advanced":
-        if wind_speed < advanced_min:
-            print(f"Wind speeds might be too light at {wind_speed:.1f} m/s for advanced windsurfers. Consider waiting for stronger winds.")
-            return False
-    else:
-        print(f"Invalid skill level '{skill_level}'. Assuming beginner conditions.")
-        if wind_speed > beginner_max:
-            print(f"Wind speeds are a bit strong at {wind_speed:.1f} m/s for beginners. Consider waiting for calmer conditions.")
-            return False
-
-    # Wind conditions are suitable if we haven't returned False yet
-    return True
-
-
-
-
-    def main():
-    """Prompts user for location, fetches weather data, and provides recommendations."""
-
-    location = input("Enter the location (city, state, etc.): ")
-    weather_data = get_weather_data(location)
-
-    if weather_data is not None:
-        try:
-            air_temp = weather_data["main"]["temp"]
-            wind_speed = weather_data["wind"]["speed"]
-            wind_gust = weather_data.get("wind", {}).get("gust", None)  # Handle optional
