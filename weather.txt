@@ -13,4 +13,30 @@
 'cod': 200}
 
 
+def main():
+    """ Run all program functions """
+    name = welcome_user()
+    wind_sports = []
+    skill_level, wind_sports = windsurfing_skill(name, wind_sports)  # Pass the empty list
 
+    # Get water and temperature tolerance after getting windsurfing skill
+    water_preference, tolerance = get_water_and_temperature_tolerance()
+
+    # Now you have all the information: name, skill level, wind sports, water preference, and temperature tolerance
+    # Use this information to provide recommendations or suggestions to the user
+
+    print(f"\nGreat to know your preferences, {name}! As a {skill_level}, {wind_sports[0]} sounds like a fun activity.")
+
+    # Example: Conditionally suggest based on water preference and temperature tolerance
+    if water_preference == "warm" and tolerance == "tropical lizard":
+        print(f"Since you prefer warm water and enjoy the heat, you might enjoy locations with calmer waters and consistent sunshine.")
+    elif water_preference == "cool" and tolerance == "polar bear":
+        print(f"You prefer cool water and can handle cooler temperatures? Look for locations with waves and potentially windier conditions.")
+    else:
+        print(f"With your adaptability to water temperature and air temperature, you have a wider range of options to explore!")
+
+    # You can further enhance this section with logic based on weather data or external resources
+
+    print("\nWe hope WaveRider helped you plan your windsurfing adventure! Stay safe and have fun out there!")
+
+main()

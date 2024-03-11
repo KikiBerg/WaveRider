@@ -50,16 +50,20 @@ def windsurfing_skill(name, wind_sports):
     if skill_level <= 3: # Convert numerical skill level to categories
         skill_level = "Chill Surfer"
         wind_sports.append("cruising")
+        print("Imagine yourself effortlessly gliding across the water, soaking in the sun and the view.")
     elif skill_level <= 6:
         skill_level = "Freestyle Flyer"
         wind_sports.append("freestyle maneuvers")
+        print("Feeling fancy? Tricks and jumps are perfect for showing off your moves and adding some flair to your ride.")
     elif skill_level <= 10:
         skill_level = "Wave Warrior"
         wind_sports.append("catching waves")
+        print("Ready to ride the power of the ocean? Catching waves is all about timing and balance, the ultimate thrill for experienced surfers.")
     else:
         print(f"Woah there, {name}, that's beyond the scale! Maybe you're a windsurfing legend? \n")
         skill_level = "Legendary Windsurfer"
         wind_sports.append("anything you set your mind to")
+        print("With your legendary skills, the possibilities are endless! Conquer any challenge the wind throws your way.")
     
     print(f"Sounds like you're a {skill_level}! We'll check the conditions for {wind_sports[0]} today.")
     return skill_level, wind_sports # Return both skill level and wind_sports list
@@ -113,9 +117,8 @@ def main():
     """ Run all program functions """
     name = welcome_user() # Call welcome_user and store the returned name
     wind_sports = [] # Create an empty list to store windsports as examples of windsurfing activities for the chosen skill level
-    windsurfing_skill(name, wind_sports)  # Pass the empty list
-    # Get water tolerance after getting windsurfing skill
-    water_preference, tolerance = get_water_and_temperature_tolerance()
+    windsurfing_skill(name, wind_sports)  # Pass the empty list   
+    water_preference, tolerance = get_water_and_temperature_tolerance() # Get water tolerance after getting windsurfing skill
     
 
 main()
