@@ -70,7 +70,7 @@ def windsurfing_skill(name, wind_sports):
     return skill_level, wind_sports # Return both skill level and wind_sports list
 
 
-def get_windsurfing_suitability(name, temperature): # rename function get_water_and_temperature_tolerance
+def get_windsurfing_suitability(name, temperature, location): # Pass location as an argument
     """Asks the user for water and air temperature preferences,
     offering guidance on windsurfing suitability based on their input.
     Returns: 
@@ -107,11 +107,11 @@ def get_windsurfing_suitability(name, temperature): # rename function get_water_
         print(f"Those aren't the only options, but interesting choices! We'll assume you're adaptable.")
     
     if temperature  < ideal_min_temp:
-        print(f"The air temperature is a bit chilly for windsurfing. Consider wearing a wetsuit or layering up.")
+        print(f"The air temperature in {location.split(',')[0].strip()} is a bit chilly for windsurfing. Consider wearing a wetsuit or layering up.")
     elif temperature > ideal_max_temp:
-        print(f"The air temperature might be a bit hot. Stay hydrated and consider sun protection.")
+        print(f"The air temperature in {location.split(',')[0].strip()} might be a bit hot. Stay hydrated and consider sun protection.")
     else:
-        print(f"The air temperature looks perfect for windsurfing!")     
+        print(f"The air temperature in {location.split(',')[0].strip()} looks perfect for windsurfing!")     
 
     return water_preference, temperature >= ideal_min # Suitable if minimum threshold is met
 
@@ -145,7 +145,7 @@ def main():
     _, _, temperature, _ = get_weather_data(api_key, location) # Fetch weather data and unpack temperature
     wind_sports = [] # Create an empty list to store windsports as examples of windsurfing activities for the chosen skill level    
     windsurfing_skill(name, wind_sports)  # Pass the empty list   
-    water_pref, is_suitable = get_windsurfing_suitability(name, temperature) # Ask the user about water and air temp preferences and determine windsurfing suitability
+    water_pref, is_suitable = get_windsurfing_suitability(name, temperature, location) # Ask the user about water and air temp preferences and determine windsurfing suitability
 
     print(f"\nWindsurfing suitability based on your preferences:\n")
     print(f"  Water preference: {water_pref}\n")
