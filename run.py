@@ -20,7 +20,7 @@ def welcome_user():
                 raise ValueError("Name can only contain letters a-z.")
             
             while True:
-                location = input(f"\n{name}, where are you located? (e.g., City, Country)\n").upper()
+                location = input(f"\nHi {name}! Where are you located? (e.g., City, Country)\n").upper()
                 try:
                     city, country = location.strip().split(",")
                     city = city.strip()
@@ -71,9 +71,16 @@ def get_water_and_temperature_tolerance():
         preference = input("Do you prefer the water warm (like a bathtub) or cool (like a refreshing pool) for windsurfing? ").lower()
         if preference in ("warm", "cool"):
             water_preference = preference
+            if preference == 'warm':
+                print(f"\nAh, a bathtub enthusiast! Perfect for practicing those mermaid impressions!")
+            elif preference == 'cool':
+                print(f"Excellent choice! Perfect for channeling your inner penguin (without the tuxedo).")                
+            else:
+                print(f"\nHold on, {preference} water? Hey there, landlubber! Those aren't water temperatures, those are shower settings. Try 'warm' or 'cool'.")
             break
+    
     print(f"\n Alright, {water_preference} water it is. Now, how do you handle air temperature?")
-    tolerance = input("Are you a 'tropical lizard' or a 'polar bear'?\n").lower()
+    tolerance = input("Would you define yourself as a 'tropical lizard' or a 'polar bear'?\n").lower()
     if tolerance not in ("tropical lizard", "polar bear"):
         print(f"Those aren't the only options {name}, but interesting choices! We'll assume you're adaptable.")
         tolerance = "adaptable"
