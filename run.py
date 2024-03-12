@@ -82,20 +82,17 @@ def is_suitable_wind_speed(skill_level, wind_speed):
     """Determines if the wind speed and gusts are suitable for windsurfing skill level.
     """
     print("\nLet's check if the current wind conditions suit your level!")
-    beginner_max = 5 # Maximum wind speed for beginners (in m/s)
-    intermediate_max = 10 # Maximum wind speed for intermediate windsurfers (in m/s)
+    beginner_max = 3 # Maximum wind speed for beginners (in m/s)
+    intermediate_max = 8 # Maximum wind speed for intermediate windsurfers (in m/s)
     advanced_min = 12 # Minimum wind speed for advanced windsurfers (m/s)
 
-    return_value = True
-
-    if skill_level == "Chill Surfer":
-        if wind_speed > beginner_max:
+    
+    if skill_level == "Chill Surfer" and wind_speed > beginner_max:
             print(f"Wind speeds are a bit strong at {wind_speed} m/s for beginners. Consider waiting for calmer conditions.")
-            return_value = False
-    elif skill_level == "Freestyle Flyer" or skill_level == "Wave Slayer":
-        if wind_speed > intermediate_max:
+            
+    elif skill_level == "Freestyle Flyer" or skill_level == "Wave Slayer" and wind_speed > intermediate_max:
             print(f"Wind speeds might be challenging at {wind_speed} m/s for {skill_level}s. Use caution or consider waiting.")
-            return_value = False
+            
     elif skill_level == "Legendary Windsurfer":
         pass  # No wind speed restriction for legendary windsurfers
         print(f"Well, you can conquer any wind and wave!")
@@ -103,10 +100,9 @@ def is_suitable_wind_speed(skill_level, wind_speed):
         print(f"Invalid skill level '{skill_level}'. Assuming beginner conditions.")
         if wind_speed > beginner_max:
             print(f"Wind speeds are a bit strong at {wind_speed} m/s for beginners. Consider waiting for calmer conditions.")
-            return_value = False
+                
     
-    
-    return return_value # Wind conditions are suitable if return_value hasn't changed
+    return 
 
 
 
