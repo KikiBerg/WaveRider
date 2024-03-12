@@ -41,6 +41,7 @@ def welcome_user():
     return name, location # Return the location variable along with name
 
 
+
 def windsurfing_skill(name, wind_sports):
     """Asks the user for their windsurfing skill level."""
     print(f"\nNow, let's get to know you better {name}")
@@ -67,7 +68,12 @@ def windsurfing_skill(name, wind_sports):
         print("We salute you, legendary windsurfer! You can conquer any wind and wave!")
     
     print(f"Ok {name}! Sounds like you're a {skill_level}! We'll soon check the conditions for {wind_sports[0]} today.")
+    print("Remember, even if the wind isn't perfect, there's always the option of dancing on your board like nobody's watching!")
     return skill_level, wind_sports # Return both skill level and wind_sports list
+
+
+
+
 
 
 def get_windsurfing_suitability(name, temperature, location): # Pass location as an argument
@@ -76,7 +82,7 @@ def get_windsurfing_suitability(name, temperature, location): # Pass location as
     Returns: 
     tuple: A tuple containing the user's water preference (str)
     and air temperature suitability (bool)."""
-    print(f"\nFirst, let's look a bit deeper at your preferences {name}!")
+    print(f"\nNow, let's look a bit more at your preferences {name}!")
     while True: # Get water preference with feedback
         preference = input("\nHow do you prefer the water for windsurfing? 'Warm' like a bath or 'cool' like a glacier?\n").lower()
         if preference in ("warm", "cool"):
@@ -114,6 +120,7 @@ def get_windsurfing_suitability(name, temperature, location): # Pass location as
         print(f"The air temperature in {location.split(',')[0].strip()} looks perfect for windsurfing!")     
 
     return water_preference, temperature >= ideal_min # Suitable if minimum threshold is met
+
 
 
 def get_weather_data(api_key, location):
