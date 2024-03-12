@@ -78,17 +78,15 @@ def windsurfing_skill(name, wind_sports):
     return skill_level, wind_sports # Return both skill level and wind_sports list
 
 
-def is_suitable_wind_speed():
+def is_suitable_wind_speed(skill_level, wind_speed):
     """Determines if the wind speed and gusts are suitable for windsurfing skill level.
-    Args:
-        wind_speed (float): The average wind speed in meters per second.
-        wind_gust (float): The maximum wind gust speed in meters per second.
-    Returns:
-        bool: True if the wind conditions are suitable, False otherwise.
     """
-    beginner_max = 7 # Maximum wind speed for beginners (in m/s)
+    print("\nLet's check if the current wind conditions suit your level!")
+    beginner_max = 5 # Maximum wind speed for beginners (in m/s)
     intermediate_max = 10 # Maximum wind speed for intermediate windsurfers (in m/s)
     advanced_min = 12 # Minimum wind speed for advanced windsurfers (m/s)
+
+    return_value = True
 
     if skill_level == "Chill Surfer":
         if wind_speed > beginner_max:
@@ -191,10 +189,12 @@ def get_weather_data(api_key, location):
 def main():
     """ Run all program functions """
     name, location = welcome_user() # Unpack both name and location
-    _, _, temperature, _ = get_weather_data(api_key, location) # Fetch weather data and unpack temperature
+    weather, _, temperature, wind_speed = get_weather_data(api_key, location) # Fetch weather data and unpack temperature
     wind_sports = [] # Create an empty list to store windsports as examples of windsurfing activities for the chosen skill level    
-    windsurfing_skill(name, wind_sports)  # Pass the empty list   
+    skill_level, _ = windsurfing_skill(name, wind_sports)  # Unpack only skill_level from windsurfing_skill 
+    is_suitable_wind_speed(skill_level, wind_speed) # call it after determining skill level and store its return value
     water_pref, is_suitable = get_windsurfing_suitability(name, temperature, location) # Ask the user about water and air temp preferences and determine windsurfing suitability
+    
 
     print(f"\nOk, let's wrap it up now! Windsurfing suitability based on your preferences:\n")
     print(f"Water preference: {water_pref}\n")
@@ -202,3 +202,4 @@ def main():
     
 
 main()
+
