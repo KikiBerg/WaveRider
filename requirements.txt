@@ -1,1 +1,1 @@
-# Your requirements go here
+pyfiglet==1.0.2
