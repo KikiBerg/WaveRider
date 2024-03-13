@@ -27,18 +27,19 @@ def welcome_user():
     name and location and validates input.
     """
     print("Welcome to WaveRider, your ultimate windsurfing"
-          "companion!\n")
+          "companion!")
+    print("")
     print("Hey there, windsurfer! Hope you are you ready "
-          "to conquer the waves today!\n")
+          "to conquer the waves today!")
 
     while True:
         try:
-            name = input("\n What's your name, Captain? ").upper()
+            name = input("What's your name, Captain?\n").upper()
             if not name.isalpha():
                 raise ValueError("Whoa there, sailor!"
                                  " Names can only have letters (a-z).")
             while True:
-                location = input(f"\nAhoy,{name}! Where are you anchored"
+                location = input(f"Ahoy,{name}! Where are you anchored"
                                  f" today? (e.g., City, Country)\n").upper()
                 try:
                     city, country = location.strip().split(",")
@@ -47,15 +48,15 @@ def welcome_user():
                     if not city or not country:
                         raise ValueError("Well matey, you need to enter"
                                          " both city and country separated"
-                                         " by a comma.\n")
+                                         " by a comma.")
                     break
                 except ValueError:
                     print("Did you mean something like 'Los Angeles, US'?"
-                          " (Enter: city, country)\n")
+                          " (Enter: city, country)")
 
             city_name = city  # Extract city name into a variable
             # Show only the city in the welcome message
-            print(f"Splendid! {city_name} is such a beautiful place!\n")
+            print(f"Splendid! {city_name} is such a beautiful place!")
             time.sleep(1)
 
             break
@@ -68,11 +69,11 @@ def welcome_user():
 def windsurfing_skill(name, wind_sports):
     """Asks the user for their windsurfing skill level."""
     time.sleep(5)
-    print(f"\nNow, let's get to know you better {name}")
-    print(f"\n {name}, on a scale of 1 to 10, how would you"
+    print(f"Now, let's get to know you better {name}")
+    print(f"On a scale of 1 to 10, how would you"
           f" rate your windsurfing skills?")
-    print(f"\n 1: chill surfer and 10: gnarly surfer")
-    print(f"\n p.s The sky is the limit; so greater numbers apply too!")
+    print(f" 1: chill surfer and 10: gnarly surfer")
+    print(f" p.s The sky is the limit; so greater numbers apply too!")
     skill_level = int(input("Choose your windsurfing spirit!"
                             " Enter a number: \n"))
 
@@ -93,7 +94,7 @@ def windsurfing_skill(name, wind_sports):
               " Get ready to carve up those waves!")
     else:
         print(f"Woah there, {name}, that's beyond the scale!"
-              f" Are you whispering to the wind gods?\n")
+              f" Are you whispering to the wind gods?")
         skill_level = "Legendary Windsurfer"
         wind_sports.append("anything you set your mind to")
         print("We salute you, legendary windsurfer!")
@@ -112,9 +113,12 @@ def is_suitable_wind_speed(skill_level, wind_speed):
     suitable for windsurfing skill level.
     """
     time.sleep(5)
-    print("\nLet's check if the current wind conditions suit your level!")
-    print("\n...\n")
+    print(" Let's check if the current wind conditions suit your level!")
     time.sleep(3)
+    print("...")
+    time.sleep(2)
+    print("Almost there...")
+    time.sleep(1)
 
     beginner_max = 5  # Maximum wind speed: beginners (m/s)
     intermediate_max = 8  # Maximum wind speed: intermediate windsurfers (m/s)
@@ -152,29 +156,29 @@ def get_windsurfing_suitability(name, temperature, location):
     offering guidance on windsurfing suitability based on their input.
     """
     time.sleep(5)
-    print(f"\nNow, let's look a bit more at your preferences {name}!")
+    print(f"Now, let's look a bit more at your preferences {name}!")
     while True:  # Get water preference with feedback
         preference = input(
-            "\nHow do you prefer the water for windsurfing?"
+            "How do you prefer the water for windsurfing?"
             "'Warm' like a bath or 'cool' like a glacier?\n").lower()
         if preference in ("warm", "cool"):
             water_preference = preference
             if preference == 'warm':
-                print(f"\nAh, a bathtub enthusiast! Perfect for"
+                print(f"Ah, a bathtub enthusiast! Perfect for"
                       f" practicing those mermaid impressions!")
             elif preference == 'cool':
                 print(f"Excellent choice! Perfect for channeling"
                       f" your inner penguin (without the tuxedo).")
             else:
-                print(f"\nHold on, {preference} water?"
+                print(f"Hold on, {preference} water?"
                       f"Hey there, landlubber!")
                 print(f" Those aren't water temperatures, but shower settings."
-                      f" Try 'warm' or 'cool'.\n")
+                      f" Try 'warm' or 'cool'.")
             break
 
     # Get air temperature tolerance and determine suitability
     time.sleep(3)
-    print(f"\n Alright, {water_preference} water it is."
+    print(f" Alright, {water_preference} water it is."
           f" Now, how do you handle air temperature?")
     tolerance = input(
         "Would you define yourself as a 'tropical lizard'"
@@ -234,7 +238,7 @@ def get_weather_data(api_key, location):
         print(f"The weather is {weather}.")
         print(f"The temperature is {temperature}°C")
         print(f"It feels like {feels_like}°C.")
-        print(f"The wind speed is {wind_speed} m/s \n")
+        print(f"The wind speed is {wind_speed} m/s")
         return weather, temperature, feels_like, wind_speed
     else:
         # Handle error: location not found, etc
@@ -256,14 +260,14 @@ def main():
     )  # Ask about water+air temp preferences. Determine windsurf. suitability
 
     time.sleep(2)
-    print(f"\n{name}, here's a quick recap of how wind and water conditions"
+    print(f"{name}, here's a quick recap of how wind and water conditions"
           f" in {location.split(',')[0]} align with your preferences:")
 
     time.sleep(5)  # Delay for 5 secs before printing the summary
-    print("\nWait a bit... The info is being wrapped up at any moment...")
+    print("Wait a bit... The info is being wrapped up at any moment...")
     print("...")
     time.sleep(3)  # Delay for 3 seconds before printing the summary
-    print(f"\nAllright {name}, let's wrap it up now!")
+    print(f"Allright {name}, let's wrap it up now!")
     print(f"Today in {location.split(',')[0].strip()},"
           f"the weather is {weather}.")
     time.sleep(1)
