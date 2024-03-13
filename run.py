@@ -5,8 +5,20 @@ import requests
 import time
 import math
 import random
+import pyfiglet
 
 api_key = "e33690fb74cac3d02cc1384e38f73c7d"
+
+
+def wave_rider_ascii():
+    """
+    A welcome ascii art for WaveRider
+    """
+    welcome_text_ascii = "Wave Rider"
+    wave_rider_ascci_art = pyfiglet.figlet_format(
+        welcome_text_ascii, font='speed', justify='center'
+    )
+    print(wave_rider_ascci_art)
 
 
 def welcome_user():
@@ -273,7 +285,29 @@ def main():
     print("")
 
 
+wave_rider_ascii()
 main()
 
 print(f"That's it for now!")
 print("We wish you a fantastic time conquering the waves")
+print("")
+print(r"""
+          -.--.
+          )  " '-,
+          ',' 2  \_
+           \q \ .  \
+        _.--'  '----.__
+       /  ._      _.__ \__
+    _.'_.'  \_ .-._\_ '-, }
+   (,/ _.---;-(  . \ \   ~
+ ____ (  .___\_\  \/_/
+(      '-._ \   \ |
+ '._       ),> _) >
+    '-._ c='  Cooo  -._
+        '-._           '.
+            '-._         `\
+                '-._       '.
+                    '-._     \
+                        `~---'
+
+""")
