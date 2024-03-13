@@ -41,28 +41,28 @@ def welcome_user():
                     print("Did you mean something like 'Los Angeles, US'?"
                           "(Enter: city, country)\n")
 
-            city_name = city # Extract city name into a variable            
+            city_name = city  # Extract city name into a variable
             # Show only the city in the welcome message
             print(f"Splendid! {city_name} is such a beautiful place!\n")
-                       
+
             break
 
         except ValueError as err:
             print(f'{err}. Maybe the rum got the better of you? Try again.')
-    return name, location # Return the location variable along with name
+    return name, location  # Return the location variable along with name
 
 
 def windsurfing_skill(name, wind_sports):
     """Asks the user for their windsurfing skill level."""
     print(f"\nNow, let's get to know you better {name}")
     print(f"\n {name}, on a scale of 1 to 10, how would you "
-           "rate your windsurfing skills?")
+          f"rate your windsurfing skills?")
     print(f"\n 1: chill surfer and 10: gnarly surfer")
     print(f"\n p.s The sky is the limit; so greater numbers apply too!")
     skill_level = int(input("Choose your windsurfing spirit!"
                             "Enter a number: \n"))
 
-    if skill_level <= 3: # Convert numerical skill level to categories
+    if skill_level <= 3:  # Convert numerical skill level to categories
         skill_level = "Chill Surfer"
         wind_sports.append("cruising")
         print("Ah, a casual sailor! Lay back, soak up the sun"
@@ -79,16 +79,16 @@ def windsurfing_skill(name, wind_sports):
               "Get ready to carve up those waves!")
     else:
         print(f"Woah there, {name}, that's beyond the scale!"
-               "Are you whispering to the wind gods?\n")
+              f"Are you whispering to the wind gods?\n")
         skill_level = "Legendary Windsurfer"
         wind_sports.append("anything you set your mind to")
         print("We salute you, legendary windsurfer!")
-    
+
     print(f"Ok {name}, looks like you're a {skill_level}!"
           f"We'll soon check today's wind conditions for {wind_sports[0]}.")
     print("Remember, even if the wind isn't perfect, you can always start"
           "dancing on your board like nobody's watching!")
-    
+
     # Return both skill level and wind_sports list
     return skill_level, wind_sports
 
@@ -98,31 +98,29 @@ def is_suitable_wind_speed(skill_level, wind_speed):
     suitable for windsurfing skill level.
     """
     print("\nLet's check if the current wind conditions suit your level!")
-    beginner_max = 5 # Maximum wind speed: beginners (m/s)
-    intermediate_max = 8 # Maximum wind speed: intermediate windsurfers (m/s)
-    advanced_min = 12 # Minimum wind speed: advanced windsurfers (m/s)
+    beginner_max = 5  # Maximum wind speed: beginners (m/s)
+    intermediate_max = 8  # Maximum wind speed: intermediate windsurfers (m/s)
+    advanced_min = 12  # Minimum wind speed: advanced windsurfers (m/s)
 
-    
     if skill_level == "Chill Surfer" and wind_speed > beginner_max:
-            print(f"Wind speeds are a bit strong at {wind_speed} m/s for"
-                  f"beginners. Consider waiting for calmer conditions.")
-            
+        print(f"Wind speeds are a bit strong at {wind_speed} m/s for"
+              f"beginners.Consider waiting for calmer conditions.")
+
     elif (skill_level in ("Freestyle Flyer", "Wave Slayer") and
-        wind_speed > intermediate_max):
-            print(f"Wind speeds might be challenging at {wind_speed} m/s"
-                  f" for {skill_level}s. Use caution or consider waiting.")
-            
+          wind_speed > intermediate_max):
+        print(f"Wind speeds might be challenging at {wind_speed} m/s"
+              f" for {skill_level}s. Use caution or consider waiting.")
+
     elif skill_level == "Legendary Windsurfer":
         pass  # No wind speed restriction for legendary windsurfers
         print(f"Well, you can conquer any wind and wave!")
     else:
         print(f"Invalid skill level '{skill_level}'."
-               "Assuming beginner conditions.")
+              f"Assuming beginner conditions.")
         if wind_speed > beginner_max:
             print(f"Wind speeds are a bit strong at {wind_speed} m/s"
                   f"for beginners. Consider waiting for calmer conditions.")
-                
-    
+
     return
 
 
@@ -131,7 +129,7 @@ def get_windsurfing_suitability(name, temperature, location):
     offering guidance on windsurfing suitability based on their input.
     """
     print(f"\nNow, let's look a bit more at your preferences {name}!")
-    while True: # Get water preference with feedback
+    while True:  # Get water preference with feedback
         preference = input(
             "\nHow do you prefer the water for windsurfing?"
             "'Warm' like a bath or 'cool' like a glacier?\n").lower()
@@ -149,16 +147,16 @@ def get_windsurfing_suitability(name, temperature, location):
                 print(f"Those aren't water temperatures, but shower settings."
                       f"Try 'warm' or 'cool'.\n")
             break
-    
+
     # Get air temperature tolerance and determine suitability
     print(f"\n Alright, {water_preference} water it is."
           f"Now, how do you handle air temperature?")
     tolerance = input(
         "\nWould you define yourself as a 'tropical lizard'"
         "or a 'polar bear'?\n").lower()
-    
-    ideal_min_temp = 18 # Minimum ideal air temperature (Celsius)
-    ideal_max_temp = 28 # Maximum ideal air temperature (Celsius)
+
+    ideal_min_temp = 18  # Minimum ideal air temperature (Celsius)
+    ideal_max_temp = 28  # Maximum ideal air temperature (Celsius)
 
     if tolerance in ("tropical lizard", "polar bear"):
         if tolerance == 'tropical lizard':
@@ -170,11 +168,11 @@ def get_windsurfing_suitability(name, temperature, location):
     else:
         print(f"Those aren't the only options, but interesting choices!"
               f"We'll assume you're adaptable.")
-    
-    if temperature  < ideal_min_temp:
+
+    if temperature < ideal_min_temp:
         print(f"The air temperature in {location.split(',')[0].strip()}"
               f"is a bit chilly for windsurfing.")
-        print ("Consider wearing a wetsuit or layering up.")
+        print("Consider wearing a wetsuit or layering up.")
     elif temperature > ideal_max_temp:
         print(f"The air temperature in {location.split(',')[0].strip()}"
               f"might be a bit hot.")
@@ -186,18 +184,19 @@ def get_windsurfing_suitability(name, temperature, location):
     return water_preference, temperature >= ideal_min
 
 
-
 def get_weather_data(api_key, location):
-    """Fetches weather data from Open Weather Map for the given location."""
-    
+    """Fetches weather data from Open Weather
+    Map for the given location.
+    """
+
     url = (
         f"https://api.openweathermap.org/data/2.5/"
         f"weather?q={location}&appid={api_key}&units=metric"
     )
 
-    response = requests.get(url).json() # json->to access specific attributes
-    
-    if response['cod'] == 200: # Check if the request was successful
+    response = requests.get(url).json()  # json->to access specific attributes
+
+    if response['cod'] == 200:  # Check if the request was successful
         # Extract and display relevant weather information here:
 
         weather = response['weather'][0]['main']
@@ -220,17 +219,15 @@ def get_weather_data(api_key, location):
 def main():
     """ Run all program functions """
 
-
-    name, location = welcome_user() # Unpack name and location
+    name, location = welcome_user()  # Unpack name and location
     weather, _, temperature, wind_speed = get_weather_data(api_key, location)
     # Fetch weather data and discard unused values
-    wind_sports = [] # Create an empty list for windsurf styles
-    skill_level, _ = windsurfing_skill(name, wind_sports) # Unpack skill_level
-    is_suitable_wind_speed(skill_level, wind_speed) # call after skill level
+    wind_sports = []  # Create an empty list for windsurf styles
+    skill_level, _ = windsurfing_skill(name, wind_sports)  # Unpack skill_level
+    is_suitable_wind_speed(skill_level, wind_speed)  # call after skill level
     water_pref, is_suitable = get_windsurfing_suitability(
         name, temperature, location
-    ) # Ask about water+air temp preferences. Determine windsurf. suitability
-
+    )  # Ask about water+air temp preferences. Determine windsurf. suitability
 
     print(f"\nOk, let's wrap it up now!")
     print(f"\nThe weather facts for {location} are:")
@@ -244,6 +241,6 @@ def main():
     print(f"Air temperature suitable: {is_suitable}")
     print("")
     print("")
-    
-    
+
+
 main()
