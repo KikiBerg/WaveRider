@@ -6,6 +6,7 @@ import time
 import math
 import random
 import pyfiglet
+import fontstyle
 
 api_key = "e33690fb74cac3d02cc1384e38f73c7d"
 
@@ -26,18 +27,21 @@ def welcome_user():
     Greets the user welcome, asks for their
     name and location and validates input.
     """
-    print("Welcome to WaveRider, your ultimate windsurfing"
-          "companion!")
+    text_w_u_01 = fontstyle.apply("Welcome to WaveRider, your digital"
+                                  " windsurfing companion!", 
+                                  'bold/italic/yellow/cyan_bg')
+    print(text_w_u_01)
     print("")
     print("Hey there, windsurfer! Hope you are you ready "
           "to conquer the waves today!")
+    print("")
 
     while True:
         try:
             name = input("What's your name, Captain?\n").upper()
             if not name.isalpha():
                 raise ValueError("Whoa there, sailor!"
-                                 " Names can only have letters (a-z).")
+                                 " Names can only have letters (a-z).\n")
             while True:
                 location = input(f"Ahoy,{name}! Where are you anchored"
                                  f" today? (e.g., City, Country)\n").upper()
@@ -48,7 +52,7 @@ def welcome_user():
                     if not city or not country:
                         raise ValueError("Well matey, you need to enter"
                                          " both city and country separated"
-                                         " by a comma.")
+                                         " by a comma.\n")
                     break
                 except ValueError:
                     print("Did you mean something like 'Los Angeles, US'?"
@@ -56,13 +60,18 @@ def welcome_user():
 
             city_name = city  # Extract city name into a variable
             # Show only the city in the welcome message
-            print(f"Splendid! {city_name} is such a beautiful place!")
+            print(f"Splendid! {city_name} is such a beautiful place!\n")
             time.sleep(1)
+            text_w_u_02 = fontstyle.apply(f"Let me fetch you a bit of info"
+                                          f" about {city_name}!",'italic')
+            print(text_w_u_02)
 
             break
 
         except ValueError as err:
-            print(f'{err}. Maybe the rum got the better of you? Try again.')
+            print(f'{err}Maybe the rum got the better of you? Try again.')    
+    print("")
+    time.sleep(3)
     return name, location  # Return the location variable along with name
 
 
@@ -235,10 +244,14 @@ def get_weather_data(api_key, location):
         wind_speed = response['wind']['speed']
         print(f"Here come some quick current weather facts"
               f" for {location.split(',')[0].strip()}:")
-        print(f"The weather is {weather}.")
-        print(f"The temperature is {temperature}°C")
-        print(f"It feels like {feels_like}°C.")
-        print(f"The wind speed is {wind_speed} m/s")
+        print(f"1.The weather is: {weather}.")
+        time.sleep(1)
+        print(f"2.The temperature is: {temperature}°C")
+        time.sleep(1)
+        print(f"3.It feels like {feels_like}°C.")
+        time.sleep(1)
+        print(f"4.The wind speed is {wind_speed} m/s")
+        time.sleep(1)
         return weather, temperature, feels_like, wind_speed
     else:
         # Handle error: location not found, etc
