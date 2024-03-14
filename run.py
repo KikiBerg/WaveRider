@@ -7,6 +7,7 @@ import math
 import random
 import pyfiglet
 import fontstyle
+import os
 
 api_key = "e33690fb74cac3d02cc1384e38f73c7d"
 
@@ -28,7 +29,7 @@ def welcome_user():
     name and location and validates input.
     """
     text_w_u_01 = fontstyle.apply("Welcome to WaveRider, your digital"
-                                  " windsurfing companion!", 
+                                  " windsurfing companion!",
                                   'bold/italic/yellow/cyan_bg')
     print(text_w_u_01)
     print("")
@@ -62,23 +63,26 @@ def welcome_user():
             # Show only the city in the welcome message
             print(f"Splendid! {city_name} is such a beautiful place!\n")
             time.sleep(1)
-            text_w_u_02 = fontstyle.apply(f"Let me fetch you a bit of info"
-                                          f" about {city_name}!",'italic')
-            print(text_w_u_02)
+            text_02 = fontstyle.apply(f"Let me fetch you a bit of info"
+                                      f" about {city_name}!", 'bold/cyan')
+            print(text_02)
 
             break
 
         except ValueError as err:
-            print(f'{err}Maybe the rum got the better of you? Try again.')    
-    print("")
-    time.sleep(3)
+            print(f'{err}Maybe the rum got the better of you? Try again.')
+
+    time.sleep(1)
     return name, location  # Return the location variable along with name
 
 
 def windsurfing_skill(name, wind_sports):
     """Asks the user for their windsurfing skill level."""
-    time.sleep(5)
-    print(f"Now, let's get to know you better {name}")
+    time.sleep(4)
+    text_03 = fontstyle.apply(f"\nNow, let's get to know you "
+                              f"better {name}", 'bold/cyan')
+    print(text_03)
+
     print(f"On a scale of 1 to 10, how would you"
           f" rate your windsurfing skills?")
     print(f" 1: chill surfer and 10: gnarly surfer")
@@ -122,7 +126,9 @@ def is_suitable_wind_speed(skill_level, wind_speed):
     suitable for windsurfing skill level.
     """
     time.sleep(5)
-    print(" Let's check if the current wind conditions suit your level!")
+    text_04 = fontstyle.apply(f"\nLet's check if the current wind conditions "
+                              f"suit your level!", 'bold/cyan')
+    print(text_04)
     time.sleep(3)
     print("...")
     time.sleep(2)
@@ -165,7 +171,9 @@ def get_windsurfing_suitability(name, temperature, location):
     offering guidance on windsurfing suitability based on their input.
     """
     time.sleep(5)
-    print(f"Now, let's look a bit more at your preferences {name}!")
+    text_05 = fontstyle.apply(f"\nNow, let's look a bit more at your"
+                              f" preferences {name}!", 'bold/cyan')
+    print(text_05)
     while True:  # Get water preference with feedback
         preference = input(
             "How do you prefer the water for windsurfing?"
@@ -187,8 +195,11 @@ def get_windsurfing_suitability(name, temperature, location):
 
     # Get air temperature tolerance and determine suitability
     time.sleep(3)
-    print(f" Alright, {water_preference} water it is."
-          f" Now, how do you handle air temperature?")
+    print(f"Alright, {water_preference} water it is.")
+
+    text_06 = fontstyle.apply(f"\nNow, how do you handle air"
+                              f" temperature?", 'bold/cyan')
+    print(text_06)
     tolerance = input(
         "Would you define yourself as a 'tropical lizard'"
         " or a 'polar bear'?\n").lower()
@@ -209,7 +220,8 @@ def get_windsurfing_suitability(name, temperature, location):
 
     if temperature < ideal_min_temp:
         print(f"The air temperature in {location.split(',')[0].strip()}"
-              f" is a bit chilly for windsurfing.")
+              f" is a bit chilly for windsurfing."
+              f" Yes... Even for a {tolerance} of your kind.")
         print("Consider wearing a wetsuit or layering up.")
     elif temperature > ideal_max_temp:
         print(f"The air temperature in {location.split(',')[0].strip()}"
@@ -259,43 +271,65 @@ def get_weather_data(api_key, location):
         return None, None, None, None
 
 
+def centered_statement(statement, terminal_width=75):
+    """Print a centered statement between each step of the code.
+    It is called in the main, between the various steps of the code unlocking.
+    """
+    # Calc number of spaces needed to center the statement
+    spaces = (terminal_width - len(statement)) // 2
+    # Construct centered statement
+    centered_statement_print = " " * spaces + statement
+
+    print(centered_statement_print)
+
+
 def main():
     """ Run all program functions """
 
     name, location = welcome_user()  # Unpack name and location
+    print("")
+    time.sleep(1)
     weather, _, temperature, wind_speed = get_weather_data(api_key, location)
     # Fetch weather data and discard unused values
     wind_sports = []  # Create an empty list for windsurf styles
     skill_level, _ = windsurfing_skill(name, wind_sports)  # Unpack skil level
+    centered_statement("-****--****--****--****-", 75)
+    print("")
+    time.sleep(1)
     is_suitable_wind_speed(skill_level, wind_speed)  # call after skill level
     water_pref, is_suitable = get_windsurfing_suitability(
         name, temperature, location
     )  # Ask about water+air temp preferences. Determine windsurf. suitability
+    centered_statement("-****--****--****--****-", 75)
 
     time.sleep(2)
-    print(f"{name}, here's a quick recap of how wind and water conditions"
-          f" in {location.split(',')[0]} align with your preferences:")
-
+    text_final = fontstyle.apply(f"{name}, here's a quick recap of how wind"
+                                 f" and water conditions in"
+                                 f" {location.split(',')[0]}"
+                                 f" align with your preferences:",
+                                 'bold/italic/yellow/cyan_bg')
+    print(text_final)
+    print("")
     time.sleep(5)  # Delay for 5 secs before printing the summary
     print("Wait a bit... The info is being wrapped up at any moment...")
     print("...")
     time.sleep(3)  # Delay for 3 seconds before printing the summary
     print(f"Allright {name}, let's wrap it up now!")
-    print(f"Today in {location.split(',')[0].strip()},"
+    print(f"1.Today in {location.split(',')[0].strip()},"
           f"the weather is {weather}.")
     time.sleep(1)
-    print(f"The temperature is {temperature}°C.")
+    print(f"2.The temperature is {temperature}°C.")
     time.sleep(1)
-    print(f"The wind speed is {wind_speed} m/s; suitable for {skill_level}s")
-    print(f"You might consider aiming for {wind_sports[0]}.")
+    print(f"3.The wind speed is {wind_speed} m/s; suitable for {skill_level}s")
+    print(f"4.You might consider aiming for {wind_sports[0]}.")
     time.sleep(1)
 
     if is_suitable:
-        print(f"The {water_pref} water temperature sounds perfect for you!")
+        print(f"5.The {water_pref} water temperature sounds perfect for you!")
         print("Looks like all conditions are lining up"
               " for a fantastic windsurfing day!")
     else:
-        print(f"The air temperature might be a bit on the chilly side.")
+        print(f"5.The air temperature might be a bit on the chilly side.")
         print("Consider wearing a wetsuit or layering up!")
     time.sleep(3)
     print("")
@@ -305,8 +339,9 @@ def main():
 wave_rider_ascii()
 main()
 
+time.sleep(3)
 print(f"That's it for now!")
-print("We wish you a fantastic time conquering the waves")
+print("We wish you a fantastic time conquering the waves!")
 print("")
 print(r"""
           -.--.
