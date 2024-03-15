@@ -273,7 +273,7 @@ def get_weather_data(api_key, location):
 
 def centered_statement(statement, terminal_width=75):
     """Print a centered statement between each step of the code.
-    It is called in the main, between the various steps of the code unlocking.
+    It is integrated in main, between the various steps of the code unlocking.
     """
     # Calc number of spaces needed to center the statement
     spaces = (terminal_width - len(statement)) // 2
@@ -336,30 +336,36 @@ def main():
     print("")
 
 
+def ending_text():
+    """Conclusion text
+    """
+    time.sleep(5)
+    print(f"That's it for now!")
+    print("We wish you a fantastic time conquering the waves!")
+    print("")
+    print(r"""
+            -.--.
+            )  " '-,
+            ',' 2  \_
+             \q \ .  \
+          _.--'  '----.__
+         /  ._      _.__ \__
+      _.'_.'  \_ .-._\_ '-, }
+     (,/ _.---;-(  . \ \   ~
+   ____ (  .___\_\  \/_/
+  (      '-._ \   \ |
+    '._       ),> _) >
+       '-._ cooo cooo  -._
+            '-._           '.
+                '-._         `\
+                '-._       '.
+                        '-._     \
+                            `~---'
+
+
+    """)
+
+
 wave_rider_ascii()
 main()
-
-time.sleep(3)
-print(f"That's it for now!")
-print("We wish you a fantastic time conquering the waves!")
-print("")
-print(r"""
-          -.--.
-          )  " '-,
-          ',' 2  \_
-           \q \ .  \
-        _.--'  '----.__
-       /  ._      _.__ \__
-    _.'_.'  \_ .-._\_ '-, }
-   (,/ _.---;-(  . \ \   ~
- ____ (  .___\_\  \/_/
-(      '-._ \   \ |
- '._       ),> _) >
-    '-._ c='  Cooo  -._
-        '-._           '.
-            '-._         `\
-                '-._       '.
-                    '-._     \
-                        `~---'
-
-""")
+ending_text()
