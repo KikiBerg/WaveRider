@@ -9,7 +9,7 @@ This project is my third student project.
 ## ABOUT WAVERIDER
 
 "Wave Rider" offers a fun journey into the world of windsurfing, providing a personalized experience that caters to users' unique preferences and skills. The game dynamically adjusts to the users' skill level, ensuring an engaging adventure for all.
-Read more about the game in the [Features](README.md) section.
+Read more about the game in the Features section.
 
 ## CONTENTS
 
@@ -18,7 +18,7 @@ Read more about the game in the [Features](README.md) section.
 * [User Stories](#user-stories)
 
 * [Features](#features)  
-  * [Existing Features](#features)
+  * [Existing Features](#existing-features)
   * [Future Implementations](#future-implementations) 
 
 * [Technologies Used](#technologies-used)
@@ -120,3 +120,17 @@ Here are the existing features:
 
 
 #### Future Implementations
+
+In future implementations I would like to:
+
+* Add gear recommendations:
+Based on the user's skill level, windsurfing style (chosen or suggested), weather conditions, and water temperature preferences, the program could recommend specific windsurfing gear (board size, sail size, wetsuit type) to optimize their experience.
+
+* Add spot recommendation:
+Based on the user's skill level, windsurfing style preference and weather data, the program could recommend nearby windsurfing spots. This could involve e.g. integrating with a database of windsurfing locations.
+
+* Interactive tutorial selection:
+Depending on the user's chosen windsurfing style (cruising, freestyle maneuvers, catching waves), provide short interactive tutorials with text, animations, or even links to video demonstrations. This would help beginners improve their technique or allow experienced surfers to learn new tricks.
+
+- - -
+
