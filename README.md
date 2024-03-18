@@ -1,32 +1,45 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# WaveRider
 
-Welcome,
+![WaveRider mockup](documentation/wr_mockup.png)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Visit the live deployed site: [WaveRider](https://wave-rider-fd4d233c3f5b.herokuapp.com/)
 
-## Reminders
+This project is my third student project.
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+# About WaveRider
 
-## Creating the Heroku app
+"Wave Rider" offers a fun journey into the world of windsurfing, providing a personalized experience that caters to users' unique preferences and skills. The game dynamically adjusts to the users' skill level, ensuring an engaging adventure for all.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## CONTENTS
 
-1. `heroku/python`
-2. `heroku/nodejs`
+* [User Experience](#user-experience-ux)
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+* [User Stories](#user-stories)
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+* [Features](#features)  
+  * [Features](#features)
+    * [feature-01](#feature-01)
+    * [feature-02](#feature-02)
+    * [feature-03](#feature-03)
+    * [feature-04](#feature-04)
+  * [Future Implementations](#future-implementations) 
 
-Connect your GitHub repository and deploy as normal.
+* [Technologies Used](#technologies-used)
+  * [Languages Used](#languages-used)
+  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 
-## Constraints
+* [Deployment & Local Development](#deployment--local-development)
+  * [Deployment](#deployment)
+  * [Local Development](#local-development)
+    * [How to Fork](#how-to-fork)
+    * [How to Clone](#how-to-clone)
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+* [Testing](#testing)
 
----
+* [Credits](#credits)
+  * [Code Used](#code-used)
+  * [Content](#content)
+  * [Media](#media)
+  * [Acknowledgments](#acknowledgments)
 
-Happy coding!
+- - -
