@@ -1,4 +1,4 @@
-# WaveRider
+# WAVERIDER
 
 ![WaveRider mockup](documentation/wr_mockup.png)
 
@@ -6,7 +6,7 @@ Visit the live deployed site: [WaveRider](https://wave-rider-fd4d233c3f5b.heroku
 
 This project is my third student project.
 
-# About WaveRider
+# ABOUT WAVERIDER
 
 "Wave Rider" offers a fun journey into the world of windsurfing, providing a personalized experience that caters to users' unique preferences and skills. The game dynamically adjusts to the users' skill level, ensuring an engaging adventure for all.
 
