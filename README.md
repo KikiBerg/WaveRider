@@ -23,7 +23,7 @@ Read more about the game in the Features section.
 
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
-  * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
+  * [Frameworks, Libraries, Programs & Imports Used](#frameworks-libraries--programs-used-imports)
 
 * [Deployment & Local Development](#deployment--local-development)
   * [Deployment](#deployment)
@@ -35,8 +35,7 @@ Read more about the game in the Features section.
 
 * [Credits](#credits)
   * [Code Used](#code-used)
-  * [Content](#content)
-  * [Media](#media)
+  * [Content, Media](#content)  
   * [Acknowledgments](#acknowledgments)
 
 - - -
@@ -134,3 +133,108 @@ Depending on the user's chosen windsurfing style (cruising, freestyle maneuvers,
 
 - - -
 
+## Technologies Used
+
+#### Languages Used
+
+Python was used for the back-end programming.
+
+#### Frameworks, Libraries, Programs & Imports Used
+
+* [Git](https://git-scm.com): Used for version control (`git add`, `git commit`, `git push`)
+* [Github](https://github.com/): To save and store the files for the website.
+* [GitPod](https://gitpod.io/) - Cloud-based IDE used to code.
+* [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
+* [Draw.io](https://www.draw.io) - To create a flowchart for the game's logic.
+
+I've used the following Python packages and external imported packages:
+
+* `requests`: used to fetch weather data from the api.
+* `time`: used for adding time delays.
+* `math`: used to round the digits for the feels_like variable.
+* `pyfiglet`: used for the ASCII text.
+* `fontstyle`: used to add colours, font weights and other styles to the terminal text.
+
+- - -
+
+## Deployment & Local Development
+
+#### Deployment
+
+Visit the live deployed site: [WaveRider](https://wave-rider-fd4d233c3f5b.herokuapp.com/)
+
+This project was deployed using the Code Institute's mock terminal for Heroku.
+
+These steps were taken for the deployment:
+
+1. Create an account or log in to Heroku.
+2. On the dashboard, in the right corner click the button that says "New" and choose "Create New App".
+3. Pick a name of the app. The name has to be unique because it can't match any other name being used.
+4. Select your region, United States or Europe.
+5. Add payment method if needed.
+6. Click "Create App".
+7. On the menu at the top of the page, go to the Settings Tab.
+8. Scroll down to Config Vars and click "Reveal Config Vars".
+9. Add a new Config Var and enter PORT in the keybox and 8000 in the valuebox.
+10. Under Config Vars you will find Buildpacks.
+11. Click "Add Buildpacks".
+12. Select python.
+13. Repeat this step but select nodejs.
+14. Important to know: The python has to be picked before the nodejs, if it is not in order 6you can change the order by click and drag to correct the order.
+15. Scroll back to the top of the page, to the menu and go to the Deploy Tab.
+16. Select GitHub as the deployment method and confirm.
+17. Search for you repository name and connect that.
+18. Scroll down to the bottom of the page and there you can choose if you want the deploys to be Automatic or Manually. The Manually deployed branches needs redepolying each time the repository is updated.
+19. Click "View" to see the live site.
+
+#### Local Development
+
+##### How to Fork
+
+To fork the repository:
+
+1. Log in (or sign up) to Github.
+2. Go to the repository for this project, [KikiBerg/WaveRider](https://github.com/KikiBerg/WaveRider)
+3. Click the Fork button in the top right corner.
+
+##### How to Clone
+
+To clone the repository:
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [KikiBerg/WaveRider](https://github.com/KikiBerg/WaveRider)
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+- - -
+
+## Testing
+
+Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
+
+- - -
+
+## Credits
+
+### Code Used
+
+* The idea for the project came from my partner, who is a windsurfing enthusiast. The code was solely initiated in my brain!
+* I got help from [stackoverflow](https://stackoverflow.com/questions/23623288/print-full-ascii-art) as the ascii art was not showing without the r in the beginning.
+
+### Content, Media
+
+* All the text content was written by myself. 
+* I got help from [chatgpt](chat.openai.com/) to generate funnier comments than the ones I'd initially written myself.
+* I used this [ascii art](https://www.asciiart.eu/sports-and-outdoors/surfing) for the end of the game.
+
+
+### Acknowledgments
+
+I would like to acknowledge the following people:
+
+* The Tutor support from Code Institute for assisting and explaining. Thanks a bunch!
+* My fellow co-student [Gudrun](https://github.com/EfthymiaKakoulidou) for reviewing and testing!
+* My fellow co-student [Efi](https://github.com/EfthymiaKakoulidou) for helping me out with my Heroku issues!
+* My fellow co-student [Darrach](https://github.com/DarrachBarneveld) for testing and trying to break my code!
+* Sheryl Goldberg - My Code Institute Mentor. Huge thanks for your time and support!
