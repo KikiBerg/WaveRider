@@ -41,7 +41,7 @@ File | CI URL | Screenshot | Notes |
 I used Lighthouse within the Chrome Developer Tools to test the performance, accessibility, best practices and SEO of the website.
 I tested only for Desktop results.
 
-`Main Page`
+`Deployed Site`
 
 | Site | Desktop | Notes |
 | --- | --- | --- |
