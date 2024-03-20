@@ -29,8 +29,8 @@ def welcome_user():
     name and location and validates input.
     """
     text_welcome = fontstyle.apply("Welcome to WaveRider, your digital"
-                                  " windsurfing companion!",
-                                  'bold/italic/yellow/cyan_bg')
+                                   " windsurfing companion!",
+                                   'bold/italic/yellow/cyan_bg')
     print(text_welcome)
     print("")
     print("Hey there, windsurfer! Hope you are you ready "
@@ -96,7 +96,7 @@ def windsurfing_skill(name, wind_sports):
     """Asks the user for their windsurfing skill level."""
     time.sleep(4)
     text_get_to_know = fontstyle.apply(f"\nNow, let's get to know you "
-                              f"better {name}", 'bold/cyan')
+                                       f"better {name}", 'bold/cyan')
     print(text_get_to_know)
 
     print(f"On a scale of 1 to 10, how would you"
@@ -142,8 +142,9 @@ def is_suitable_wind_speed(skill_level, wind_speed):
     suitable for windsurfing skill level.
     """
     time.sleep(5)
-    text_check_wind = fontstyle.apply(f"\nLet's check if the current wind conditions "
-                              f"suit your level!", 'bold/cyan')
+    text_check_wind = fontstyle.apply(f"\nLet's check if the current wind "
+                                      f"conditions suit your level!",
+                                      'bold/cyan')
     print(text_check_wind)
     time.sleep(3)
     print("...")
@@ -188,7 +189,7 @@ def get_windsurfing_suitability(name, temperature, location):
     """
     time.sleep(5)
     text_preferences = fontstyle.apply(f"\nNow, let's look a bit more at your"
-                              f" preferences {name}!", 'bold/cyan')
+                                       f" preferences {name}!", 'bold/cyan')
     print(text_preferences)
     while True:  # Get water preference with feedback
         preference = input(
@@ -214,25 +215,30 @@ def get_windsurfing_suitability(name, temperature, location):
     print(f"Alright, {water_preference} water it is.")
 
     text_air_temp_tolerance = fontstyle.apply(f"\nNow, how do you handle air"
-                              f" temperature?", 'bold/cyan')
+                                              f" temperature?", 'bold/cyan')
     print(text_air_temp_tolerance)
-    tolerance = input(
-        "Would you define yourself as a 'tropical lizard'"
-        " or a 'polar bear'?\n").lower()
+    while True:  # Get air tolerance preference with feedback
+        tolerance = input(
+            "Would you define yourself as a 'tropical lizard'"
+            " or a 'polar bear'?\n").lower()
 
-    ideal_min_temp = 18  # Minimum ideal air temperature (Celsius)
-    ideal_max_temp = 28  # Maximum ideal air temperature (Celsius)
+        try:
+            if tolerance in ("tropical lizard", "polar bear"):
+                ideal_min_temp = 18  # Minimum ideal air temperature (Celsius)
+                ideal_max_temp = 28  # Maximum ideal air temperature (Celsius)
 
-    if tolerance in ("tropical lizard", "polar bear"):
-        if tolerance == 'tropical lizard':
-            ideal_min = 22
-            ideal_max = 32
-        elif tolerance == 'polar bear':
-            ideal_min = 12
-            ideal_max = 22
-    else:
-        print(f"Those aren't the only options, but interesting choices!"
-              f" We'll assume you're adaptable.")
+                if tolerance == 'tropical lizard':
+                    ideal_min = 22
+                    ideal_max = 32
+                elif tolerance == 'polar bear':
+                    ideal_min = 12
+                    ideal_max = 22
+                break
+            else:
+                raise ValueError("Incorrect tolerance. Please enter "
+                                 "'tropical lizard' or 'polar bear'.")
+        except ValueError as e:
+            print(e)
 
     if temperature < ideal_min_temp:
         print(f"The air temperature in {location.split(',')[0].strip()}"
