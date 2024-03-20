@@ -85,7 +85,7 @@ I have tested my deployed project on two different browsers to check for compati
 | :--- | :--- |
 | I want the game to remember my skill level and location from previous sessions for a more personalized experience. | Comments in the welcome_user function and windsurfing_skill function for future storage of this data. |
 | I want to see new challenges or scenarios to keep the gameplay engaging and dynamic. | The game could be expanded to offer different challenges based on location or weather conditions. |
-| I want the option to track my windsurfing progress and achievements within the game. | Similar to remembering user data, features for tracking progress and achievements. This would require additional functionalities like user accounts and databases. |
+| I want the option to track my windsurfing progress and achievements within the game. | Similar to remembering user data, features for tracking progress and achievements could be added. Additional functionalities e.g. user accounts and/or databases. |
 
 - - -
 
@@ -100,9 +100,14 @@ Full testing was performed on the following devices:
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail | Screenshot |
 | --- | --- | --- | --- | --- | --- |
-
-
-| ... | ... | ... | ... | ... | ... |
+| `welcome_user` | Greets the user, asks for name and location, validates input | User enters valid name and location (city, country) | ... | ... | ... |
+| `windsurfing_skill` | Asks the user for windsurfing skill level and suggests windsports based on response | User enters a skill level between 1 and 10 or greater. | ... | ... | ... |
+| `is_suitable_wind_speed` | Determines suitability of wind speed for windsurfing based on user's skill level | - Test with beginner skill and high wind speed  - Test with intermediate skill and moderate wind speed  - Test with advanced skill and low wind speed | ... | ... | ... |
+| `get_windsurfing_suitability` | Asks for water and air temperature preferences, offers windsurfing suitability guidance | User enters water preference ("warm" or "cool") and air temperature tolerance ("tropical lizard" or "polar bear") | ... | ... | ... |
+| `get_weather_data`| Fetches weather data from OpenWeatherMap for the given location | - Test with a valid city and country  - Test with an invalid city and country | ... | ... | ... |
+| `centered_statement`| Prints a symbol statement centered within the terminal width | User observes the statement being centered within the terminal | ... | ... | ... |
+| `main`| Runs all program functions in sequence | User is guided through the program steps and receives a summary of wind and water conditions for windsurfing | ... | ... | ... |
+| `ending_text`| Displays a concluding message | User observes the concluding message | ... | ... | ... |
 
 - - -
 
