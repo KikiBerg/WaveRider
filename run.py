@@ -54,18 +54,34 @@ def welcome_user():
                         raise ValueError("Well matey, you need to enter"
                                          " both city and country separated"
                                          " by a comma.\n")
-                    break
-                except ValueError:
+                    # Enter API endpoint URL to validate city
+                    url = (
+                        f"https://api.openweathermap.org/data/2.5/"
+                        f"weather?q={location}&appid={api_key}&units=metric"
+                    )
+                    response = requests.get(url).json()
+
+                    # Check if the API response indicates a valid city
+                    if response['cod'] == 200:
+                        city_name = city  # Extract city name into a variable
+                        # Show only the city in the welcome message
+                        print(f"Splendid! {city_name} is "
+                              f"such a beautiful place!\n")
+                        time.sleep(1)
+                        fetch_info = fontstyle.apply(f"Let me fetch you a bit"
+                                                     f" of info about"
+                                                     f" {city_name}!",
+                                                     'bold/cyan')
+                        print(fetch_info)
+                        break
+                    else:
+                        print(f"Hmm, we couldn't find that location. "
+                              "Maybe you misspelled something? "
+                              "Try again and don't forget the ',' "
+                              "between city and country!")
+                except ValueError as err:
                     print("Did you mean something like 'Los Angeles, US'?"
                           " (Enter: city, country)")
-
-            city_name = city  # Extract city name into a variable
-            # Show only the city in the welcome message
-            print(f"Splendid! {city_name} is such a beautiful place!\n")
-            time.sleep(1)
-            text_02 = fontstyle.apply(f"Let me fetch you a bit of info"
-                                      f" about {city_name}!", 'bold/cyan')
-            print(text_02)
 
             break
 
@@ -293,6 +309,7 @@ def main():
     # Fetch weather data and discard unused values
     wind_sports = []  # Create an empty list for windsurf styles
     skill_level, _ = windsurfing_skill(name, wind_sports)  # Unpack skil level
+    print("")
     centered_statement("-****--****--****--****-", 75)
     print("")
     time.sleep(1)
@@ -300,7 +317,9 @@ def main():
     water_pref, is_suitable = get_windsurfing_suitability(
         name, temperature, location
     )  # Ask about water+air temp preferences. Determine windsurf. suitability
+    print("")
     centered_statement("-****--****--****--****-", 75)
+    print("")
 
     time.sleep(2)
     text_final = fontstyle.apply(f"{name}, here's a quick recap of how wind"
@@ -368,4 +387,5 @@ def ending_text():
 
 wave_rider_ascii()
 main()
+time.sleep(2)
 ending_text()

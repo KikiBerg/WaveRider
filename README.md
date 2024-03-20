@@ -35,7 +35,7 @@ Read more about the game in the Features section.
 
 * [Credits](#credits)
   * [Code Used](#code-used)
-  * [Content, Media](#content)  
+  * [Content & Media](#content-media)  
   * [Acknowledgments](#acknowledgments)
 
 - - -
@@ -222,7 +222,7 @@ Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
 * The idea for the project came from my partner, who is a windsurfing enthusiast. The code was solely initiated in my brain!
 * I got help from [stackoverflow](https://stackoverflow.com/questions/23623288/print-full-ascii-art) as the ascii art was not showing without the r in the beginning.
 
-### Content, Media
+### Content & Media
 
 * All the text content was written by myself. 
 * I got help from [chatgpt](chat.openai.com/) to generate funnier comments than the ones I'd initially written myself.
@@ -234,7 +234,7 @@ Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
 I would like to acknowledge the following people:
 
 * The Tutor support from Code Institute for assisting and explaining. Thanks a bunch!
-* My fellow co-student [Gudrun](https://github.com/EfthymiaKakoulidou) for reviewing and testing!
+* My fellow co-student [Gudrun](https://github.com/g-omarsdottir) for reviewing and testing!
 * My fellow co-student [Efi](https://github.com/EfthymiaKakoulidou) for helping me out with my Heroku issues!
 * My fellow co-student [Darrach](https://github.com/DarrachBarneveld) for testing and trying to break my code!
 * Sheryl Goldberg - My Code Institute Mentor. Huge thanks for your time and support!
