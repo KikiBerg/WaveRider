@@ -75,7 +75,6 @@ I have tested my deployed project on two different browsers to check for compati
 
 | Goals | How are they achieved? |
 | :--- | :--- |
-
 | I want to see a captivating welcome message that showcases the game's purpose and excites me to play. | Achieved through the wave_rider_ascii function that displays an ASCII art logo and the welcome_user function that greets the user with styled text. |
 | I want clear and concise instructions to guide me through the game's mechanics and features. | Achieved through structured and user-friendly prompts guiding the player. |
 | I want the game to be visually appealing and easy to navigate through | Achieved through formatted text using the fontstyle library for greetings and prompts, making the text visually appealing. The code structure with clear function calls makes navigation easier. |
@@ -84,7 +83,6 @@ I have tested my deployed project on two different browsers to check for compati
 
 |  Goals | How could they be achieved? |
 | :--- | :--- |
-
 | I want the game to remember my skill level and location from previous sessions for a more personalized experience. | Comments in the welcome_user function and windsurfing_skill function for future storage of this data. |
 | I want to see new challenges or scenarios to keep the gameplay engaging and dynamic. | The game could be expanded to offer different challenges based on location or weather conditions. |
 | I want the option to track my windsurfing progress and achievements within the game. | Similar to remembering user data, features for tracking progress and achievements. This would require additional functionalities like user accounts and databases. |
