@@ -227,6 +227,7 @@ Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
 * All the text content was written by myself. 
 * I got help from [chatgpt](chat.openai.com/) to generate funnier comments than the ones I'd initially written myself.
 * I used this [ascii art](https://www.asciiart.eu/sports-and-outdoors/surfing) for the end of the game.
+* Background image from [unsplash](https://unsplash.com/photos/a-group-of-people-wind-surfing-in-the-ocean-jjgl-BL-eCw)
 
 
 ### Acknowledgments

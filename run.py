@@ -236,7 +236,7 @@ def get_windsurfing_suitability(name, temperature, location):
                 break
             else:
                 raise ValueError("Incorrect tolerance. Please enter "
-                                 "'tropical lizard' or 'polar bear'.")
+                            "'tropical lizard' or 'polar bear'.")
         except ValueError as e:
             print(e)
 
