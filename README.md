@@ -13,6 +13,8 @@ Read more about the game in the Features section.
 
 ## CONTENTS
 
+* [Flowchart](#flowchart)
+
 * [User Experience](#user-experience-ux)
 
 * [User Stories](#user-stories)
@@ -39,6 +41,15 @@ Read more about the game in the Features section.
   * [Acknowledgments](#acknowledgments)
 
 - - -
+
+## Flowchart
+
+To follow best practice, a flowchart was created for the game's logic, using a free version of [Draw.io](https://www.draw.io).
+
+The flowchart below illustrates the sequential steps of the WaveRider program, depicting how the user can navigate through the it and the available options at each stage.
+
+![screenshot](documentation/flowchart.jpg)
+
 
 ## User Experience (UX)
 
