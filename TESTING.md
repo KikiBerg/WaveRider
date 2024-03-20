@@ -100,14 +100,15 @@ Full testing was performed on the following devices:
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail | Screenshot |
 | --- | --- | --- | --- | --- | --- |
-| `welcome_user` | Greets the user, asks for name and location, validates input | User enters valid name and location (city, country) | ... | ... | ... |
-| `windsurfing_skill` | Asks the user for windsurfing skill level and suggests windsports based on response | User enters a skill level between 1 and 10 or greater. | ... | ... | ... |
-| `is_suitable_wind_speed` | Determines suitability of wind speed for windsurfing based on user's skill level | - Test with beginner skill and high wind speed  - Test with intermediate skill and moderate wind speed  - Test with advanced skill and low wind speed | ... | ... | ... |
-| `get_windsurfing_suitability` | Asks for water and air temperature preferences, offers windsurfing suitability guidance | User enters water preference ("warm" or "cool") and air temperature tolerance ("tropical lizard" or "polar bear") | ... | ... | ... |
-| `get_weather_data`| Fetches weather data from OpenWeatherMap for the given location | - Test with a valid city and country  - Test with an invalid city and country | ... | ... | ... |
-| `centered_statement`| Prints a symbol statement centered within the terminal width | User observes the statement being centered within the terminal | ... | ... | ... |
-| `main`| Runs all program functions in sequence | User is guided through the program steps and receives a summary of wind and water conditions for windsurfing | ... | ... | ... |
-| `ending_text`| Displays a concluding message | User observes the concluding message | ... | ... | ... |
+| `wave_rider_ascii()` | Displays "WaveRider" ascii art | Visual inspection | Art displayed as expected | Pass | --- |
+| `welcome_user()` | Greets the user, asks for name and location, validates input | User enters valid name and location (city, country) | User's name and location are captured correctly | ... | ... |
+| `windsurfing_skill()` | Asks the user for windsurfing skill level and suggests windsports based on response | User enters a skill level between 1 and 10 or greater. | User's skill level is captured and corresponding windsports are suggested | ... | ... |
+| `is_suitable_wind_speed()` | Determines suitability of wind speed for windsurfing based on user's skill level | - Test with beginner skill and high wind speed  - Test with intermediate skill and moderate wind speed  - Test with advanced skill and low wind speed | - Advice is given to wait for calmer conditions for beginners with high wind speed - Advice is given for intermediate windsurfers depending on wind speed - No restrictions are applied for legendary windsurfers | ... | ... |
+| `get_windsurfing_suitability()` | Asks for water and air temperature preferences, offers windsurfing suitability guidance | User enters water preference ("warm" or "cool") and air temperature tolerance ("tropical lizard" or "polar bear") | User's water preference and air temperature tolerance are captured, and windsurfing suitability advice is provided based on weather data and preferences | ... | ... |
+| `get_weather_data()`| Fetches weather data from OpenWeatherMap for the given location | - Test with a valid city and country  - Test with an invalid city and country | - Weather data is retrieved for the valid location - Error message is displayed for the invalid location | ... | ... |
+| `centered_statement()`| Prints a symbol statement centered within the terminal width | User observes the statement being centered within the terminal | The statement is centered as intended | ... | ... |
+| `main()`| Runs all program functions in sequence | User is guided through the program steps and receives a summary of wind and water conditions for windsurfing | The program executes as designed and presents a user-friendly experience | ... | ... |
+| `ending_text()`| Displays a concluding message | User observes the concluding message | The message is displayed as expected | ... | ... |
 
 - - -
 
