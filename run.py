@@ -28,10 +28,10 @@ def welcome_user():
     Greets the user welcome, asks for their
     name and location and validates input.
     """
-    text_w_u_01 = fontstyle.apply("Welcome to WaveRider, your digital"
+    text_welcome = fontstyle.apply("Welcome to WaveRider, your digital"
                                   " windsurfing companion!",
                                   'bold/italic/yellow/cyan_bg')
-    print(text_w_u_01)
+    print(text_welcome)
     print("")
     print("Hey there, windsurfer! Hope you are you ready "
           "to conquer the waves today!")
@@ -95,9 +95,9 @@ def welcome_user():
 def windsurfing_skill(name, wind_sports):
     """Asks the user for their windsurfing skill level."""
     time.sleep(4)
-    text_03 = fontstyle.apply(f"\nNow, let's get to know you "
+    text_get_to_know = fontstyle.apply(f"\nNow, let's get to know you "
                               f"better {name}", 'bold/cyan')
-    print(text_03)
+    print(text_get_to_know)
 
     print(f"On a scale of 1 to 10, how would you"
           f" rate your windsurfing skills?")
@@ -142,9 +142,9 @@ def is_suitable_wind_speed(skill_level, wind_speed):
     suitable for windsurfing skill level.
     """
     time.sleep(5)
-    text_04 = fontstyle.apply(f"\nLet's check if the current wind conditions "
+    text_check_wind = fontstyle.apply(f"\nLet's check if the current wind conditions "
                               f"suit your level!", 'bold/cyan')
-    print(text_04)
+    print(text_check_wind)
     time.sleep(3)
     print("...")
     time.sleep(2)
@@ -187,9 +187,9 @@ def get_windsurfing_suitability(name, temperature, location):
     offering guidance on windsurfing suitability based on their input.
     """
     time.sleep(5)
-    text_05 = fontstyle.apply(f"\nNow, let's look a bit more at your"
+    text_preferences = fontstyle.apply(f"\nNow, let's look a bit more at your"
                               f" preferences {name}!", 'bold/cyan')
-    print(text_05)
+    print(text_preferences)
     while True:  # Get water preference with feedback
         preference = input(
             "How do you prefer the water for windsurfing?"
@@ -204,8 +204,8 @@ def get_windsurfing_suitability(name, temperature, location):
                       f" your inner penguin (without the tuxedo).")
             else:
                 print(f"Hold on, {preference} water?"
-                      f"Hey there, landlubber!")
-                print(f" Those aren't water temperatures, but shower settings."
+                      f"Hey there, landlubber! ")
+                print(f"Those aren't water temperatures, but shower settings."
                       f" Try 'warm' or 'cool'.")
             break
 
@@ -213,9 +213,9 @@ def get_windsurfing_suitability(name, temperature, location):
     time.sleep(3)
     print(f"Alright, {water_preference} water it is.")
 
-    text_06 = fontstyle.apply(f"\nNow, how do you handle air"
+    text_air_temp_tolerance = fontstyle.apply(f"\nNow, how do you handle air"
                               f" temperature?", 'bold/cyan')
-    print(text_06)
+    print(text_air_temp_tolerance)
     tolerance = input(
         "Would you define yourself as a 'tropical lizard'"
         " or a 'polar bear'?\n").lower()
