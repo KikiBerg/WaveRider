@@ -46,9 +46,9 @@ Read more about the game in the Features section.
 
 To follow best practice, a flowchart was created for the game's logic, using a free version of [Draw.io](https://www.draw.io).
 
-The flowchart below illustrates the sequential steps of the WaveRider program, depicting how the user can navigate through the it and the available options at each stage.
+The flowchart below illustrates the sequential steps of the WaveRider program, depicting how the user can navigate through it and the available options at each stage.
 
-![screenshot](documentation/flowchart.jpg)
+![screenshot](documentation/wr_flowchart.png)
 
 
 ## User Experience (UX)
@@ -232,6 +232,7 @@ Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
 
 * The idea for the project came from my partner, who is a windsurfing enthusiast. The code was solely initiated in my brain!
 * I got help from [stackoverflow](https://stackoverflow.com/questions/23623288/print-full-ascii-art) as the ascii art was not showing without the r in the beginning.
+* I looked at this [tutorial] (https://www.youtube.com/watch?v=_jBeFdqnNAU&ab_channel=TechNotebook) to understand how I get an API key and where in the code I should enter the API endpoint URL in order to validate the data I wanted to fetch.
 
 ### Content & Media
 
