@@ -75,20 +75,20 @@ def welcome_user():
                         print(fetch_info)
                         break
                     else:
-                        print(f"Hmm, we couldn't find that location. "
-                              "Maybe you misspelled something? "
-                              "Try again and don't forget the ',' "
+                        print("Hmm, we couldn't find that location. ")
+                        print("Maybe you misspelled something? ")
+                        print("Try again and don't forget the ',' "
                               "between city and country!")
                 except ValueError as err:
                     if "," not in location:
                         print("Maybe you forgot to enter the "
                               "country you're located?")
-                        print("Or entering a comma between city and country? "
-                              "Please enter the location in the "
+                        print("Or entering a comma between city and country?")
+                        print("Please enter the location in the "
                               "format 'City, Country'.")
                     elif len(location.split(",")) != 2:
-                        print("Oops! It seems you entered too many commas. "
-                              "Please enter the location in the "
+                        print("Oops! It seems you entered too many commas.")
+                        print("Please enter the location in the "
                               "format: 'City, Country'.")
                     else:
                         print("Did you mean something like 'Los Angeles, US'?"
@@ -139,10 +139,10 @@ def windsurfing_skill(name, wind_sports):
         wind_sports.append("anything you set your mind to")
         print("We salute you, legendary windsurfer!")
 
-    print(f"Ok {name}, looks like you're a {skill_level}!"
-          f" We'll soon check today's wind conditions for {wind_sports[0]}.")
-    print("Remember, even if the wind isn't perfect, you can always start"
-          " dancing on your board like nobody's watching!")
+    print(f"Ok {name}, looks like you're a {skill_level}!")
+    print(f" We'll soon check today's wind conditions for {wind_sports[0]}.")
+    print("Remember, though the wind isn't always perfect, ")
+    print("you can start dancing on your board like nobody's watching!")
 
     # Return both skill level and wind_sports list
     return skill_level, wind_sports
@@ -163,9 +163,9 @@ def is_suitable_wind_speed(skill_level, wind_speed):
     print("Almost there...")
     time.sleep(1)
 
-    beginner_max = 5  # Maximum wind speed: beginners (m/s)
-    intermediate_max = 15  # Maximum wind speed: intermediate windsurfers (m/s)
-    advanced_min = 20  # Minimum wind speed: advanced windsurfers (m/s)
+    beginner_max = 5  # Max wind speed: beginners (m/s)
+    intermediate_max = 15  # Max wind speed: intermediate windsurfers (m/s)
+    advanced_min = 20  # Min wind speed: advanced windsurfers (m/s)
 
     if skill_level == "Chill Surfer" and wind_speed > beginner_max:
         print(f"Hm... Wind speeds are a bit strong at {wind_speed} m/s for"
@@ -174,12 +174,14 @@ def is_suitable_wind_speed(skill_level, wind_speed):
     elif (skill_level in ("Freestyle Flyer", "Wave Slayer") and
           wind_speed > intermediate_max):
         print(f"Well, wind speeds might be challenging at {wind_speed} m/s"
-              f" for {skill_level}s. Use caution or consider waiting.")
+              f" for {skill_level}s.")
+        print("Use caution or consider waiting.")
 
     elif (skill_level in ("Freestyle Flyer", "Wave Slayer") and
           wind_speed < intermediate_max):
         print(f"Well, wind speeds might be kinda slow at {wind_speed} m/s"
-              f" for {skill_level}s. Enjoy anyway!")
+              f" for {skill_level}s.")
+        print("Enjoy anyway!")
 
     elif skill_level == "Legendary Windsurfer":
         pass  # No wind speed restriction for legendary windsurfers
@@ -189,7 +191,8 @@ def is_suitable_wind_speed(skill_level, wind_speed):
               f" Assuming beginner conditions.")
         if wind_speed > beginner_max:
             print(f"Wind speeds are a bit strong at {wind_speed} m/s"
-                  f" for beginners. Consider waiting for calmer conditions.")
+                  f" for beginners.")
+            print("Consider waiting for calmer conditions.")
 
     return
 
@@ -213,7 +216,7 @@ def get_windsurfing_suitability(name, temperature, location):
                       f" practicing those mermaid impressions!")
             elif preference == 'cool':
                 print(f"Excellent choice! Perfect for channeling"
-                      f" your inner penguin (without the tuxedo).")
+                      f" your inner penguin (without the tuxedo)")
             else:
                 print(f"Hold on, {preference} water?"
                       f"Hey there, landlubber! ")
@@ -253,8 +256,8 @@ def get_windsurfing_suitability(name, temperature, location):
 
     if temperature < ideal_min_temp:
         print(f"The air temperature in {location.split(',')[0].strip()}"
-              f" is a bit chilly for windsurfing."
-              f" Yes... Even for a {tolerance} of your kind.")
+              f" is a bit chilly for windsurfing.")
+        print(f" Yes... Even for a {tolerance} of your kind.")
         print("Consider wearing a wetsuit or layering up.")
     elif temperature > ideal_max_temp:
         print(f"The air temperature in {location.split(',')[0].strip()}"
