@@ -109,6 +109,7 @@ Full testing was performed on the following devices:
 | 08 `main()`| Runs all program functions in sequence | User is guided through the program steps and receives a summary of wind and water conditions for windsurfing | The program executes as designed and presents a user-friendly experience | Pass | ![screenshot](documentation/wr_testing_08.png) |
 | 09 `ending_text()`| Displays a concluding message | User observes the concluding message | The message is displayed as expected | Pass | ![screenshot](documentation/wr_testing_09.png) |
 
+- - -
 
 #### Suggestion for testing
 
