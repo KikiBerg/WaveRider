@@ -80,8 +80,19 @@ def welcome_user():
                               "Try again and don't forget the ',' "
                               "between city and country!")
                 except ValueError as err:
-                    print("Did you mean something like 'Los Angeles, US'?"
-                          " (Enter: city, country)")
+                    if "," not in location:
+                        print("Maybe you forgot to enter the "
+                              "country you're located?")
+                        print("Or entering a comma between city and country? "
+                              "Please enter the location in the "
+                              "format 'City, Country'.")
+                    elif len(location.split(",")) != 2:
+                        print("Oops! It seems you entered too many commas. "
+                              "Please enter the location in the "
+                              "format: 'City, Country'.")
+                    else:
+                        print("Did you mean something like 'Los Angeles, US'?"
+                              "(Enter: city, country)")
 
             break
 
@@ -236,7 +247,7 @@ def get_windsurfing_suitability(name, temperature, location):
                 break
             else:
                 raise ValueError("Incorrect tolerance. Please enter "
-                            "'tropical lizard' or 'polar bear'.")
+                                 "'tropical lizard' or 'polar bear'.")
         except ValueError as e:
             print(e)
 
