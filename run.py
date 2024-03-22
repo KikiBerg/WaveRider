@@ -153,8 +153,8 @@ def is_suitable_wind_speed(skill_level, wind_speed):
     time.sleep(1)
 
     beginner_max = 5  # Maximum wind speed: beginners (m/s)
-    intermediate_max = 8  # Maximum wind speed: intermediate windsurfers (m/s)
-    advanced_min = 12  # Minimum wind speed: advanced windsurfers (m/s)
+    intermediate_max = 15  # Maximum wind speed: intermediate windsurfers (m/s)
+    advanced_min = 20  # Minimum wind speed: advanced windsurfers (m/s)
 
     if skill_level == "Chill Surfer" and wind_speed > beginner_max:
         print(f"Hm... Wind speeds are a bit strong at {wind_speed} m/s for"

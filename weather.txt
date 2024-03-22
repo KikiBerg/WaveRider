@@ -12,8 +12,3 @@
 'name': 'Stockholm', 
 'cod': 200}
 
-
-
-elif skill_level == "Freestyle Flyer" or skill_level == "Wave Slayer" and wind_speed > intermediate_max:
-            print(f"Wind speeds might be challenging at {wind_speed} m/s"
-                  f" for {skill_level}s. Use caution or consider waiting.")

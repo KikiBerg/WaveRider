@@ -232,7 +232,7 @@ Please refer to [TESTING.md](TESTING.md) file for all testing carried out.
 
 * The idea for the project came from my partner, who is a windsurfing enthusiast. The code was solely initiated in my brain!
 * I got help from [stackoverflow](https://stackoverflow.com/questions/23623288/print-full-ascii-art) as the ascii art was not showing without the r in the beginning.
-* I looked at this [tutorial] (https://www.youtube.com/watch?v=_jBeFdqnNAU&ab_channel=TechNotebook) to understand how I get an API key and where in the code I should enter the API endpoint URL in order to validate the data I wanted to fetch.
+* I looked at this [tutorial](https://www.youtube.com/watch?v=_jBeFdqnNAU&ab_channel=TechNotebook) to understand how I get an API key and where in the code I should enter the API endpoint URL in order to validate the data I wanted to fetch.
 
 ### Content & Media
 

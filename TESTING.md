@@ -19,6 +19,7 @@ Return back to the [README.md](README.md) file.
 * [MANUAL TESTING](#manual-testing)
   * [Testing User Stories](#testing-user-stories)
   * [Full Testing](#full-testing)
+  * [Suggestion for testing](#suggestion-testing)
 
 * [BUGS](#bugs)
 
@@ -107,6 +108,37 @@ Full testing was performed on the following devices:
 | 07 `centered_statement()`| Prints a symbol statement centered within the terminal width | User observes the statement being centered within the terminal | The statement is centered as intended | Pass | ![screenshot](documentation/wr_testing_07.png) |
 | 08 `main()`| Runs all program functions in sequence | User is guided through the program steps and receives a summary of wind and water conditions for windsurfing | The program executes as designed and presents a user-friendly experience | Pass | ![screenshot](documentation/wr_testing_08.png) |
 | 09 `ending_text()`| Displays a concluding message | User observes the concluding message | The message is displayed as expected | Pass | ![screenshot](documentation/wr_testing_09.png) |
+
+
+#### Suggestion for testing
+
+Since the wind speed is a crucial part of this program and can significantly impact the experience, I have looked around in this [wind speed forecast map](https://zoom.earth/maps/wind-speed/#view=-27.58,125.13,5z/model=icon).
+Here I provide you with a brief overview of some locations known for their wind speeds, categorized as low, medium, and very fast. 
+The values are given in meters per second (m/s) for reference.
+
+`Low Wind Speed (Less than 5 m/s)`
+
+| Location | Wind speed (m/s) | Description | 
+| --- | --- | --- |
+| Ketchikan, Alaska, USA | < 5 m/s | Generally calm waters due to surrounding mountains |
+| Hanoi, Vietnam | < 5 m/s | Low winds year-round due to tropical climate |
+| Doha, Qatar | < 5 m/s | Sheltered waters with occasional winds |
+
+`Medium Wind Speed (10-20 m/s)`
+
+| Location | Wind speed (m/s) | Description | 
+| --- | --- | --- |
+| San Diego, California, USA | ca 15 m/s | Consistent winds ideal for water sports |
+| Wellington, New Zealand | ca 14 m/s | Frequent southerly winds |
+| Cape Town, South Africa | ca 16 m/s | Strong southeasterly winds for windsurfing and kitesurfing |
+
+`Very Fast Wind Speed (Over 20 m/s)`
+
+| Location | Wind speed (m/s) | Description | 
+| --- | --- | --- |
+| Greymouth, New Zealand | ca 20 m/s | Frequent gales exceeding 20 m/s for experienced surfers |
+| Tierra del Fuego, Argentina/Chile | > 20 m/s | Ferocious winds due to proximity to Antarctica (over 20 m/s) |
+| Spitsbergen, Svalbard, Norway | > 30 m/s | Powerful katabatic winds in winter caused by extremely cold air (over 30 m/s). |
 
 - - -
 
