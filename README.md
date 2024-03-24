@@ -86,13 +86,13 @@ The game concludes with a positive message, wishing users a fantastic time conqu
 
 ## User Stories
 
-#### First Time Visitor Goals
+### First Time Visitor Goals
 
 * As a first-time visitor, I want to see a captivating welcome message that showcases the game's purpose and excites me to play.
 * As a first-time visitor, I want clear and concise instructions to guide me through the game's mechanics and features.
 * As a first-time visitor, I want the game to be visually appealing and easy to navigate through.
 
-#### Returning and frequent Visitor Goals
+### Returning and frequent Visitor Goals
 
 * As a returning visitor, I want the game to remember my skill level and location from previous sessions for a more personalized experience.
 * As a returning visitor, I want to see new challenges or scenarios to keep the gameplay engaging and dynamic.
@@ -102,7 +102,7 @@ The game concludes with a positive message, wishing users a fantastic time conqu
 
 ## Features
 
-#### Existing Features
+### Existing Features
 
 Τhe game simulates a conversation between a windsurfer and a digital companion named Wave Rider. 
 Here are the existing features:
@@ -131,7 +131,7 @@ Here are the existing features:
     * The program concludes the interaction with a goodbye message and encourages the user to enjoy their windsurfing experience.
 
 
-#### Future Implementations
+### Future Implementations
 
 In future implementations I would like to:
 
@@ -145,7 +145,7 @@ Based on the user's skill level, windsurfing style preference and weather data, 
 Depending on the user's chosen windsurfing style (cruising, freestyle maneuvers, catching waves), provide short interactive tutorials with text, animations, or even links to video demonstrations. This would help beginners improve their technique or allow experienced surfers to learn new tricks.
 
 
-#### Defensive Programming
+### Defensive Programming
 
 This program incorporates several defensive programming features to improve its robustness and handle unexpected user input. For more extended description, go to [TESTING.md](TESTING.md) in the Full Testing section.
 Here are some key examples:
@@ -220,11 +220,11 @@ The program employs robust logic to handle diverse scenarios.
 
 ## Technologies Used
 
-#### Languages Used
+### Languages Used
 
 Python was used for the back-end programming.
 
-#### Frameworks, Libraries, Programs & Imports Used
+### Frameworks, Libraries, Programs & Imports Used
 
 * [Git](https://git-scm.com): Used for version control (`git add`, `git commit`, `git push`)
 * [Github](https://github.com/): To save and store the files for the website.
@@ -244,7 +244,7 @@ I've used the following Python packages and external imported packages:
 
 ## Deployment & Local Development
 
-#### Deployment
+### Deployment
 
 Visit the live deployed site: [WaveRider](https://wave-rider-fd4d233c3f5b.herokuapp.com/)
 
@@ -272,9 +272,9 @@ These steps were taken for the deployment:
 18. Scroll down to the bottom of the page and there you can choose if you want the deploys to be Automatic or Manually. The Manually deployed branches needs redepolying each time the repository is updated.
 19. Click "View" to see the live site.
 
-#### Local Development
+### Local Development
 
-##### How to Fork
+#### How to Fork
 
 To fork the repository:
 
@@ -282,7 +282,7 @@ To fork the repository:
 2. Go to the repository for this project, [KikiBerg/WaveRider](https://github.com/KikiBerg/WaveRider)
 3. Click the Fork button in the top right corner.
 
-##### How to Clone
+#### How to Clone
 
 To clone the repository:
 
