@@ -21,7 +21,8 @@ Read more about the game in the Features section.
 
 * [Features](#features)  
   * [Existing Features](#existing-features)
-  * [Future Implementations](#future-implementations) 
+  * [Future Implementations](#future-implementations)
+  * [Defensive Programming](#defensive-programming)
 
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
@@ -50,6 +51,7 @@ The flowchart below illustrates the sequential steps of the WaveRider program, d
 
 ![screenshot](documentation/wr_flowchart.png)
 
+- - -
 
 ## User Experience (UX)
 
@@ -141,6 +143,78 @@ Based on the user's skill level, windsurfing style preference and weather data, 
 
 * Interactive tutorial selection:
 Depending on the user's chosen windsurfing style (cruising, freestyle maneuvers, catching waves), provide short interactive tutorials with text, animations, or even links to video demonstrations. This would help beginners improve their technique or allow experienced surfers to learn new tricks.
+
+
+#### Defensive Programming
+
+This program incorporates several defensive programming features to improve its robustness and handle unexpected user input. For more extended description, go to [TESTING.md](TESTING.md) in the Full Testing section.
+Here are some key examples:
+
+`1. Input Validation`
+Ensures user input conforms to expected format.
+Some examples:
+
+* Name validation, welcome_user():
+  * Accepts only alphabetical characters(.isalpha()) 
+  * Provides informative error messages using ValueError exceptions
+
+* Location validation, welcome_user(): 
+  * Uses API to confirm valid city (requests.get)
+  * Checks if the user entered both city and country separated by a comma using if "," not in location
+  * Validates the number of commas to prevent extra entries
+  * Uses a try-except block to catch potential errors and provide informative messages to the user
+  * Attempts to split the location string by comma to extract city and country
+
+* Windsurfing Skill Level Validation, windsurfing_skill():   
+  * Converts the entered skill level to an integer using int(input())
+  * Assigns skill levels ("Chill Surfer", "Freestyle Flyer", "Wave Slayer", "Legendary Windsurfer") based on the numerical input using a series of if-elif statements
+  * Handles invalid numerical input by providing an informative message
+
+
+`2. Error handling`
+Handles potential errors during program execution.
+Some examples:
+
+* API Request Handling, get_weather_data():
+  * Uses a try-except block to catch potential errors during the API request.
+  * Checks the API response code (response['cod']) to identify successful requests (code 200) and handles unsuccessful requests by printing an error message.
+* The code uses try-except blocks in various functions to catch potential errors during user input, API calls, and data manipulation. It provides informative error messages to the user and avoids program crashes.
+
+
+`3. Data filtering`
+Ensures data types are as expected to prevent unexpected behavior.
+Some examples:
+
+* Weather Data Extraction, get_weather_data():
+  * Extracts only relevant weather information (weather, temperature, feels_like, wind_speed) from the API response assuming successful request.
+  * The windsurfing_skill function uses conditional statements to categorize the user's skill level based on the numerical input and creates a list of windsurfing styles based on the category. This ensures proper handling of the skill level throughout the program.
+  * The is_suitable_wind_speed function uses different messages depending on the skill level and wind speed. It also includes a default case to handle unexpected skill level values.
+
+
+`4. Feedback mechanisms`
+Throughout the program, different functions provide informative messages to the user, explaining what the program is doing, what input is expected, and offering guidance.
+Some examples:
+
+* Clarification Prompts:
+  * In the welcome_user() function, if the user enters a location that doesn't include a comma, the program prompts them again with an explanation of the expected format ("City, Country").
+
+* Error Messages with Guidance:
+  * When the program encounters an error fetching weather data for the user's location, it doesn't just display a generic error message. Instead, it informs the user that the location might be misspelled and suggests they try again.
+
+
+`5.	Modular design`
+The code is organized into functions, each responsible for a specific task. This modular design enhances readability, maintainability, and allows for easier troubleshooting.
+For more thorough description of the functions, see Full Testing section in the [TESTING.md](TESTING.md)
+
+
+`6.	General robust logic`
+The program employs robust logic to handle diverse scenarios.
+
+* API interaction
+* Flexible input handling
+* Adaptive recommendations
+* Error Reporting and Logging
+* Modular and Testable Code
 
 - - -
 
@@ -251,3 +325,5 @@ I would like to acknowledge the following people:
 * My fellow co-student [Efi](https://github.com/EfthymiaKakoulidou) for helping me out with my Heroku issues!
 * My fellow co-student [Darrach](https://github.com/DarrachBarneveld) for testing and trying to break my code!
 * Sheryl Goldberg - My Code Institute Mentor. Huge thanks for your time and support!
+
+- - -

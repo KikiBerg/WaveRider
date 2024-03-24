@@ -169,7 +169,7 @@ def is_suitable_wind_speed(skill_level, wind_speed):
 
     if skill_level == "Chill Surfer" and wind_speed > beginner_max:
         print(f"Hm... Wind speeds are a bit strong at {wind_speed} m/s for"
-              f" beginners.") 
+              f" beginners.")
         print("Consider waiting for calmer conditions.")
 
     elif (skill_level in ("Freestyle Flyer", "Wave Slayer") and

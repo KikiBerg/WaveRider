@@ -19,7 +19,7 @@ Return back to the [README.md](README.md) file.
 * [MANUAL TESTING](#manual-testing)
   * [Testing User Stories](#testing-user-stories)
   * [Full Testing](#full-testing)
-  * [Suggestion for testing](#suggestion-testing)
+  * [Suggestion for testing](#suggestion-for-testing)
 
 * [BUGS](#bugs)
 
